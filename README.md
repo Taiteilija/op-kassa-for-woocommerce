@@ -72,3 +72,5 @@ The system audit checks for the following:
 3. Mandatory plugins are installed/activated
 4. Incompatible plugins are not installed (may issue an warning or error)
 5. System has connection to target systems
+
+If the system audit fails or shows warnings, please contact OP-Kassa support. And attach screenshot of the result with your message.
