@@ -40,7 +40,7 @@ Install by uploading Zip trough Wordpress : Get the zip from here -> https://git
 
 ## Configurations
 
-### Constants
+### Constants [Only for developers and testing]
 
 The following constants should be set for development and test environments. If the constants are not set, they point to the production version of OP-Kassa. For additional information please kontalt OP-Kassa support.
 
