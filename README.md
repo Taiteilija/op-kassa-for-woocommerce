@@ -74,3 +74,7 @@ The system audit checks for the following:
 5. System has connection to target systems
 
 If the system audit fails or shows warnings, please contact OP-Kassa support. And attach screenshot of the result with your message.
+
+## License
+
+MIT -> https://opensource.org/licenses/MIT
