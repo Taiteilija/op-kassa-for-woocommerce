@@ -1,4 +1,6 @@
-# WooCommerce OP-Kassa plugin
+=== OP Kassa for WooCommerce ===
+
+Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
 
 - Contributors:
     - [Geniem](https://github.com/devgeniem)
@@ -12,10 +14,15 @@
     - WordPress 4.9.0 and up. -> https://wordpress.org/download/
     - WooCommerce 3.0.0 and up. -> https://wordpress.org/plugins/woocommerce/
     - WordPress REST API – OAuth 1.0a Server -> https://wordpress.org/plugins/rest-api-oauth1/
+    - Requires PHP: 7.1
+    - License: MIT
+    - License URI: https://opensource.org/licenses/MIT
+
+== Description ==
 
 This plugin integrates WooCommerce to OP-Kassa.
 
-## Installation
+== Installation ==
 
 Install with Composer: (You need composer for this -> https://getcomposer.org/)
 
@@ -38,7 +45,7 @@ Install by uploading Zip trough Wordpress : Get the zip from here -> https://git
 
 ```
 
-## Configurations
+== Configurations ==
 
 ### Constants [Only for developers and testing]
 
@@ -75,6 +82,11 @@ The system audit checks for the following:
 
 If the system audit fails or shows warnings, please contact OP-Kassa support. And attach screenshot of the result with your message.
 
-## License
+== Frequently Asked Questions ==
 
-MIT -> https://opensource.org/licenses/MIT
+TBA
+
+== Changelog ==
+
+= 0.7 =
+* First version published at WordPress.org
