@@ -20,7 +20,7 @@ Connect your OP Kassa and WooCommerce to synchronize products, orders and stock 
 
 == Description ==
 
-This plugin integrates WooCommerce to OP-Kassa.
+This plugin integrates WooCommerce to OP Kassa.
 
 == Installation ==
 
@@ -33,7 +33,7 @@ Install with Composer: (You need composer for this -> https://getcomposer.org/)
 
 ```
 
-Install by uploading Zip trough Wordpress : Get the zip from here -> https://github.com/OPMerchantServices/op-kassa-for-woocommerce/archive/master.zip
+Install by uploading Zip trough Wordpress : Get the zip from here -> https://github.com/OPMerchantServices/OP Kassa-for-woocommerce/archive/master.zip
 
 ```
 1. Download the latest Zip package
@@ -49,11 +49,11 @@ Install by uploading Zip trough Wordpress : Get the zip from here -> https://git
 
 ### Constants [Only for developers and testing]
 
-The following constants should be set for development and test environments. If the constants are not set, they point to the production version of OP-Kassa. For additional information please kontalt OP-Kassa support.
+The following constants should be set for development and test environments. If the constants are not set, they point to the production version of OP Kassa. For additional information please kontalt OP Kassa support.
 
-- **KIS_WOOCOMMERCE_OAUTH_URL**: Defines the OP-Kassa to WooCommerce OAuth initialization URL in OP-Kassa.
-- **KIS_KASSA_OAUTH_URL**: Defines the OP-Kassa to Kassa OAuth initialization URL in OP-Kassa.
-- **KIS_WOOCOMMERCE_WEBHOOK_URL**: Defines the URL in OP-Kassa for WooCommerce webhooks.
+- **KIS_WOOCOMMERCE_OAUTH_URL**: Defines the OP Kassa to WooCommerce OAuth initialization URL in OP Kassa.
+- **KIS_KASSA_OAUTH_URL**: Defines the OP Kassa to Kassa OAuth initialization URL in OP Kassa.
+- **KIS_WOOCOMMERCE_WEBHOOK_URL**: Defines the URL in OP Kassa for WooCommerce webhooks.
 - **KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL**
 - **KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL**: Defines the S3 API Gateway URL from where to fetch the configuration file for the plugin system audit
 
@@ -63,7 +63,7 @@ This plugin creates an admin page in WooCommerce settings. The page is be found 
 ```
 /wp-admin/admin.php?page=wc-settings&tab=kis
 ```
-On this settings tab, the user can activate OAuth connections required by OP-Kassa. Merchant details are found on the page after the connections are created successfully.
+On this settings tab, the user can activate OAuth connections required by OP Kassa. Merchant details are found on the page after the connections are created successfully.
 
 ### System Audit
 
@@ -80,7 +80,7 @@ The system audit checks for the following:
 4. Incompatible plugins are not installed (may issue an warning or error)
 5. System has connection to target systems
 
-If the system audit fails or shows warnings, please contact OP-Kassa support. And attach screenshot of the result with your message.
+If the system audit fails or shows warnings, please contact OP Kassa support. And attach screenshot of the result with your message.
 
 == Frequently Asked Questions ==
 
