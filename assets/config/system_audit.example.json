@@ -1,0 +1,31 @@
+{
+    "ini_params": [
+        {
+            "name": "memory_limit",
+            "limit": 256
+        },
+        {
+            "name": "max_execution_time",
+            "limit": 300
+        }
+    ],
+    "wp_options": [
+        {
+            "name": "permalink_structure",
+            "value": "/%postname%/",
+            "gui_name": "[Common Settings] = Post name",
+            "path": "/wp-admin/options-permalink.php"
+        }
+    ],
+    "mandatory_plugins": [
+        "rest-api-oauth1/oauth-server.php"
+    ],
+    "incompatible_plugins": [
+        "woocommerce-services/woocommerce-services.php",
+        "sitepress-multilingual-cms/sitepress.php",
+        "polylang/polylang.php",
+        "polylang-pro/polylang.php"
+    ],
+    "target_url": "https://httpstat.us/200",
+    "pass_audit_on_warning": true
+}

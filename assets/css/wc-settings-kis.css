@@ -1,0 +1,91 @@
+
+.kis-status-container .postbox:last-child {
+    margin-bottom: 0;
+}
+
+.kis-oauth {
+    width: 400px;
+    max-width: 100%;
+}
+
+.kis-oauth__section {
+    padding: 0 0 .25rem;
+}
+
+.kis-oauth__section p {
+    margin: 0 0 .5rem;
+}
+
+.kis-oauth__section p:last-child {
+    margin-bottom: 0;
+}
+
+.kis-oauth__label {
+    /* Use the WP core line height for buttons. */
+    line-height: 26px;
+    position: relative;
+    margin-right: 2rem;
+}
+
+.kis-oauth__label--checkmarked:after {
+    content: "\f147";
+    color: #46B450;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'dashicons';
+    font-size: 1.6rem;
+    position: absolute;
+}
+
+.kis-oauth__label--crossed:after {
+    content: "\f158";
+    color: #f44336;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'dashicons';
+    font-size: 1.6rem;
+    position: absolute;
+}
+
+.kis-oauth__action {
+    flex: 1;
+}
+
+.kis-merchant__details__row__cell--label {
+    font-weight: bold;
+    padding-right: 2rem;
+}
+
+.kis-audit-status-container .postbox h2 {
+    font-size: 14px; 
+    padding: 8px 12px; 
+    margin: 0;
+    line-height: 1.4;
+}
+
+.system-audit-notices {
+    margin: 5px 10px;
+}
+
+.system-audit-notice {
+    box-shadow: 0 0 6px -2px rgba(0,0,0,.3);
+    padding: 5px 10px;
+    margin: 10px 0;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.system-audit-notice:hover {
+    box-shadow: unset;
+}
+
+.system-audit-notice.fail {
+    border-left: 4px solid #dc3232;
+}
+
+.system-audit-notice.warning {
+    border-left: 4px solid #ffb900;
+}
+
+.system-audit-notice.success {
+    border-left: 4px solid #46b450;
+}

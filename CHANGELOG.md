@@ -1,0 +1,139 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.6.0] - 2019-10-29
+
+### Changed
+- Authentication occurs on a single request chain taking the user first to Kassa and then to WooCommerce authentication.
+- Kassa and WooCommerce authentications are both canceled with a single action on the OP Kassa settings page.
+- Webhook secret handling updated.
+
+## [0.5.10] - 2019-15-10
+
+### Removed
+- Removed checks to ensure only the user that created OAuth link can remove it
+- Removed filters to force EAN to be a number
+
+
+## [0.5.9] - 2019-27-09
+
+### Added
+- Added production endpoint urls
+
+### Fixed
+- Fixed production endpoint API paths
+- Fixed a typo in the plugin name
+
+### Removed
+- Removed "Initial stock sync" -setting from the settings page since it's not used
+
+
+## [0.5.8] - 2019-23-09
+
+### Added
+- Added production endpoint urls
+
+### Removed
+- Removed custom REST processing for the Kassa EAN. Will use normal metadata instead
+
+
+## [0.5.7] - 2019-18-09
+
+### Fixed
+
+- Fixed product EAN ajax processing in while editing product variants
+
+## [0.5.6] - 2019-18-09
+
+### Fixed
+
+- Fixed handling for the `kis_modified_after` query parameter if the value is `"0"` _(meaning: starting from the beggining)_.
+
+## [0.5.5] - 2019-18-09
+
+### Fixed
+
+- Fixed using `get_id()` only for objects from API requests
+
+## [0.5.4] - 2019-18-09
+
+### Fixed
+
+- Fixed syntax error where $metaKeyName was not defined inside `update_callback` function in ProductEAN class
+- Fixed classes using `WP_Post` ID-property directly instead of using `get_id()`
+
+## [0.5.3] - 2019-18-09
+
+### Added
+
+- Force ordering by modified time in ascending order for REST API requests made by KIS.
+
+## [0.5.2] - 2019-10-09
+
+### Added
+
+- Added composer autoload.php require if the file exists for zip distributions
+- Added zip file distribution instructions to README
+
+## [0.5.1] - 2019-16-08
+
+### Fixed
+
+- Fixed EAN not saving properly with multiple product variants
+- Fixed a minor style issue with the tracking code box labels
+
+## [0.5.0] - 2019-15-08
+
+### Added
+
+- Added support for Kassa EAN code
+- Added package slip link from Kassa
+
+## [0.4.1] - 2019-01-08
+
+### Added
+
+- Added a hook to update order modified-field when order is refunded
+
+## [0.4.0] - 2019-20-06
+
+### Added
+
+- Added new fields for shipping tracking code, carrier and pickup ID
+- Added new functionality to track deleted produts and an JSON API endpoint to fetch them
+
+## [0.3.0]
+
+### Added
+
+- Added the ability to query Woo objects with a meta data identifier. This feature can is used for fetching orders created by KIS.
+
+### Fixed
+
+- Fixed a bug in Kassa settings page markup.
+
+## [0.2.0] - 2019-04-01
+
+### Added
+
+- Added options to define synchronizing settings on the custom settings page.
+
+## [0.1.0] - 2019-03-25
+
+### Fixed
+- The success command is stripped in the method for getting the current admin url.
+- Fixed some bugs in the custom `kis_modified_after` date query handling.
+
+### Changed
+- The KIS OAuth error command is now a class constant in the OAuth class.
+
+### Removed
+- The plugin does not include the success command in the success url. Let the Lambda function add it.
+
+## [0.0.0] - 2019-03-14
+
+### Added
+- Initial plugin functionalities.
