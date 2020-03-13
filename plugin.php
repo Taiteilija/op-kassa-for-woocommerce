@@ -1,13 +1,22 @@
 <?php
 /**
- * Plugin Name: Woocommerce OP Kassa
- * Plugin URI: https://git.vuola.net/pivo-kassa/wp-woocommerce-kis-plugin
- * Description: This plugin integrates WooCommerce with OP Kassa.
- * Author: Geniem Oy
- * Author URI: https://geniem.fi
- * Text Domain: woocommerce-kis
- * Version: 0.6.0
- */
+* Plugin Name: OP Kassa for WooCommerce
+* Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
+* Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
+* Version: 0.7
+* Requires at least: 4.9
+* Tested up to: 5.3
+* Requires PHP: 7.1
+* WC requires at least: 3.0
+* WC tested up to: 3.9
+* Author: OP Merchant Services
+* Author URI: https://www.op-kauppiaspalvelut.fi 
+* Text Domain: op-kassa-for-woocommerce
+* Domain Path: /languages
+* License: MIT
+* License URI: https://opensource.org/licenses/MIT
+* Copyright: OP Merchant Services
+*/
 
 namespace CheckoutFinland\WooCommerceKIS;
 
