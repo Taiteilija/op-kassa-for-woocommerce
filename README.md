@@ -55,12 +55,6 @@ This plugin creates an admin page in WooCommerce settings. The page is be found 
 ```
 On this settings tab, the user can activate OAuth connections required by OP-Kassa. Merchant details are found on the page after the connections are created successfully.
 
-## Turning the plugin into a zip file for distribution
-
-1. Clone the repository and remove the `.git` directory or use `git archive` command and unzip the archived package
-2. Run `composer install` inside the directory and wait for it to finish
-3. Zip the whole directory
-
 ### System Audit
 
 The Plugin has a system audit-feature which is ran on plugin activation and may be also ran manually from plugin settings page.
