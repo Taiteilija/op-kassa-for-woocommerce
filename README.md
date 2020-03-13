@@ -24,7 +24,7 @@ Install with Composer: (You need composer for this -> https://getcomposer.org/)
 
 ```
 
-Install by uploading Zip trough Wordpress : Get the zip from here -> https://github.com/OPMerchantServices/op-kassa-for-woocommerce/releases
+Install by uploading Zip trough Wordpress : Get the zip from here -> https://github.com/OPMerchantServices/op-kassa-for-woocommerce/archive/master.zip
 
 ```
 1. Download the latest Zip package
