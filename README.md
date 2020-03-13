@@ -1,4 +1,4 @@
-# WooCommerce KIS plugin
+# WooCommerce OP-Kassa plugin
 
 - Contributors:
     - [Geniem](https://github.com/devgeniem)
