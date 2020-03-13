@@ -22,6 +22,7 @@ Install with Composer: (You need composer for this -> https://getcomposer.org/)
 ```
 1. Clone the repository to wordpress 'wp-content/plugins' directory.
 2. Run `composer install` inside the directory and wait for it to finish
+3. Activate the Plugin in Woocommerce Plugin management
 
 ```
 
