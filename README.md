@@ -6,6 +6,7 @@
     - [Ville Siltala](https://github.com/villesiltala)
     - [Tomi Henttinen](https://github.com/tomihenttinen)
     - [Indre Solodov](https://github.com/Indre87)
+    - [Aki Salmi](https://github.com/rinkkasatiainen)
 - Tags: wordpress, woocommerce
 - Requires:
     - WordPress 4.9.0 and up. -> https://wordpress.org/download/
