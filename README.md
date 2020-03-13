@@ -8,8 +8,9 @@
     - [Indre Solodov](https://github.com/Indre87)
 - Tags: wordpress, woocommerce
 - Requires:
-    - WordPress 4.9.0 and up.
-    - WooCommerce 3.0.0 and up.
+    - WordPress 4.9.0 and up. -> https://wordpress.org/download/
+    - WooCommerce 3.0.0 and up. -> https://wordpress.org/plugins/woocommerce/
+    - WordPress REST API – OAuth 1.0a Server -> https://wordpress.org/plugins/rest-api-oauth1/
 
 This plugin integrates WooCommerce to OP-Kassa.
 
