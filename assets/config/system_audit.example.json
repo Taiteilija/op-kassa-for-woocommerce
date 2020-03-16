@@ -15,9 +15,17 @@
             "value": "/%postname%/",
             "gui_name": "[Common Settings] = Post name",
             "path": "/wp-admin/options-permalink.php"
+        },
+        {
+            "name": "woocommerce_calc_taxes",
+            "value": "1",
+            "gui_name": "[WooCommerce Settings - General] = Enable taxes",
+            "path": "/wp-admin/admin.php?page=wc-settings&tab=general",
+            "warn_only": true
         }
     ],
     "mandatory_plugins": [
+        "woocommerce/woocommerce.php",
         "rest-api-oauth1/oauth-server.php"
     ],
     "incompatible_plugins": [

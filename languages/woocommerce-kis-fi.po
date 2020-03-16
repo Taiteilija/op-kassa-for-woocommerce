@@ -24,31 +24,31 @@ msgstr ""
 #: src/Admin/Notice.php:64
 #, php-format
 msgid ""
-"WooCommerce KIS: The %1$sWordPress REST API – OAuth 1.0a Server%2$s plugin "
+"WooCommerce OP Kassa: The %1$sWordPress REST API – OAuth 1.0a Server%2$s plugin "
 "must be installed and activated!"
 msgstr ""
-"WooCommerce KIS: %1$sWordPress REST API – OAuth 1.0a Server%2$s -lisäosan "
+"WooCommerce OP Kassa: %1$sWordPress REST API – OAuth 1.0a Server%2$s -lisäosan "
 "tulee olla asennettu ja aktivoitu!"
 
 #: src/Admin/Notice.php:92
 msgid ""
-"WooCommerce KIS: An error occurred while authenticating the integration to "
+"WooCommerce OP Kassa: An error occurred while authenticating the integration to "
 "WooCommerce. Please try again later!"
 msgstr ""
-"WooCommerce KIS: WooCommercen integraation autentikaatiossa tapahtui virhe. "
+"WooCommerce OP Kassa: WooCommercen integraation autentikaatiossa tapahtui virhe. "
 "Yritä myöhemmin uudelleen!"
 
 #: src/Admin/Notice.php:98
 msgid ""
-"WooCommerce KIS: An error occurred while authenticating the integration to "
+"WooCommerce OP Kassa: An error occurred while authenticating the integration to "
 "OP Kassa. Please try again later!"
 msgstr ""
-"WooCommerce KIS: OP Kassa -integraation autentikaatiossa tapahtui virhe. "
+"WooCommerce OP Kassa: OP Kassa -integraation autentikaatiossa tapahtui virhe. "
 "Yritä myöhemmin uudelleen!"
 
 #: src/Admin/Notice.php:124
-msgid "WooCommerce KIS: You are not authorized to disconnect the integration!"
-msgstr "WooCommerce KIS: sinulla ei ole oikeutta katkaista integraatiota!"
+msgid "WooCommerce OP Kassa: You are not authorized to disconnect the integration!"
+msgstr "WooCommerce OP Kassa: sinulla ei ole oikeutta katkaista integraatiota!"
 
 #: src/Admin/SettingsPage.php:36
 msgid "OP Kassa"
@@ -257,6 +257,10 @@ msgstr "pitää olla asetettu seuraavasti:"
 #. Wordpress option checkmessage 3
 msgid "Permalink Settings -> Common Settings = Post name"
 msgstr "Osoiterakenteen asetukset -> Yleiset asetukset = Artikkelin nimi"
+
+#. Audit Warning - error message
+msgid "Audit Warning:"
+msgstr "Järjestelmätestissä löytynyt mahdollisia ongelmia:"
 
 #. Audit failed - error message
 msgid "Audit Failed:"
