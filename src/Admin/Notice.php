@@ -26,7 +26,7 @@ class Notice {
         add_action( 'admin_notices', function() use ( $message ) {
             ?>
             <div class="notice notice-error">
-                <p>WooCommerce KIS: <?php echo esc_html( $message ); ?></p>
+                <p>WooCommerce OP Kassa: <?php echo esc_html( $message ); ?></p>
             </div>
             <?php
         } );
@@ -41,7 +41,7 @@ class Notice {
         add_action( 'admin_notices', function() use ( $message ) {
             ?>
             <div class="notice notice-success is-dismissible">
-                <p>WooCommerce KIS: <?php echo esc_html( $message ); ?></p>
+                <p>WooCommerce OP Kassa: <?php echo esc_html( $message ); ?></p>
             </div>
             <?php
         } );
@@ -61,7 +61,7 @@ class Notice {
                     // translators: Placeholders are the html anchor tags for the plugin resource.
                     esc_html__(
                         // phpcs:disable
-                        'WooCommerce KIS: The %1$sWordPress REST API – OAuth 1.0a Server%2$s plugin must be installed and activated!',
+                        'WooCommerce OP Kassa: The %1$sWordPress REST API – OAuth 1.0a Server%2$s plugin must be installed and activated!',
                         // phpcs:enable
                         'woocommerce-kis'
                     ),
@@ -89,13 +89,13 @@ class Notice {
         switch ( $error ) {
             case 'wc':
                 $error = __(
-                    'WooCommerce KIS: An error occurred while authenticating the integration to WooCommerce. Please try again later!', // phpcs:ignore
+                    'WooCommerce OP Kassa: An error occurred while authenticating the integration to WooCommerce. Please try again later!', // phpcs:ignore
                     'woocommerce-kis'
                 );
                 break;
             case 'kassa':
                 $error = __(
-                    'WooCommerce KIS: An error occurred while authenticating the integration to OP Kassa. Please try again later!', // phpcs:ignore
+                    'WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa. Please try again later!', // phpcs:ignore
                     'woocommerce-kis'
                 );
                 break;
@@ -121,7 +121,7 @@ class Notice {
                         // translators: The placeholder is for a user display name variable.
                         esc_html__(
                             // phpcs:disable
-                            'WooCommerce KIS: You are not authorized to disconnect the integration!',
+                            'WooCommerce OP Kassa: You are not authorized to disconnect the integration!',
                             // phpcs:enable
                             'woocommerce-kis'
                         ),

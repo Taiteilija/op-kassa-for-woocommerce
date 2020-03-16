@@ -45,7 +45,8 @@ final class SystemAudit {
         if ( ! defined( 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL' ) ) {
             define( 
                 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL', 
-                'https://kisstack-wooclient-config.s3.eu-central-1.amazonaws.com/wooClientSystemAuditConfig.json' // Direct S3-bucket link to config-file
+                // 'https://woocommerce.qa.op-kassa.fi/v1/wooClientSystemAuditConfig.json' // Direct S3-bucket link to config-file
+                'https://kisdevstack-wooclient-config.s3.eu-central-1.amazonaws.com/system_audit.example.json'
             );
         }
         $config_source_url = KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL;
@@ -256,7 +257,8 @@ final class SystemAudit {
                     __('The Wordpress setting', 'woocommerce-kis') . 
                     ' <a href="' . get_site_url(null, $option['path'], 'admin') . 
                     '" >' . $option['name'] . '</a> ' . __('needs to be set to:', 'woocommerce-kis') . ' ' . 
-                    __($option['gui_name'], 'woocommerce-kis')
+                    __($option['gui_name'], 'woocommerce-kis'),
+                    ($option['warn_only']) ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR
                 );
 
                 $is_check_successful = false;
@@ -357,7 +359,7 @@ final class SystemAudit {
         if ( $system_audit_notice = get_transient( 'system-audit-notice-warning' ) ) {
             ?>
             <div class="notice notice-warning is-dismissible">
-                <p>OP Kassa: <?php echo $system_audit_notice; ?></p>
+                <p>OP Kassa: <?php echo __('Audit Warnings:', 'woocommerce-kis') . '<br />' . $system_audit_notice; ?></p>
             </div>
             <?php
             delete_transient( 'system-audit-notice-warning' );
@@ -382,13 +384,14 @@ final class SystemAudit {
         $system_audit_notice = "";
 
         if ( $error = get_transient( 'system-audit-notice-error' )) {
-            $system_audit_notice .= '<div class="system-audit-notice fail"><p>' . 
-                __('Audit Failed:', 'woocommerce-kis') . '<br />' . $error . '</p></div>';
+            $system_audit_notice .= '<div class="system-audit-notice fail"><p><b>' . 
+                __('Audit Failed:', 'woocommerce-kis') . '</b><br />' . $error . '</p></div>';
             delete_transient( 'system-audit-notice-error' );
         }
 
         if ( $warning = get_transient( 'system-audit-notice-warning' ) ) {
-            $system_audit_notice .= '<div class="system-audit-notice warning"><p>' . $warning . '</p></div>';
+            $system_audit_notice .= '<div class="system-audit-notice warning"><p><b>' . 
+            __('Audit Warning:', 'woocommerce-kis') . '</b><br />' . $warning . '</p></div>';
             delete_transient( 'system-audit-notice-warning' );
         }
 
