@@ -44,9 +44,8 @@ final class SystemAudit {
         
         if ( ! defined( 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL' ) ) {
             define( 
-                'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL', 
-                // 'https://woocommerce.qa.op-kassa.fi/v1/wooClientSystemAuditConfig.json' // Direct S3-bucket link to config-file
-                'https://kisdevstack-wooclient-config.s3.eu-central-1.amazonaws.com/system_audit.example.json'
+                'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL',
+                'https://woocommerce.prod.op-kassa.fi/prod/wooClientSystemAuditConfig.json'
             );
         }
         $config_source_url = KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL;

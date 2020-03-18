@@ -76,6 +76,7 @@ The system audit checks for the following:
     b. max_execution_time
 2. WordPress-options are configured properly ('value'-value needs to match the Wordpress configuration):
     a. permalink_structure
+    b. woocommerce_calc_taxes (warn only)
 3. Mandatory plugins are installed/activated
 4. Incompatible plugins are not installed (may issue an warning or error)
 5. System has connection to target systems
