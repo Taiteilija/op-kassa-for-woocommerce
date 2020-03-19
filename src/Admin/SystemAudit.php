@@ -87,7 +87,7 @@ final class SystemAudit {
         }
 
         if ( $is_audit_passed ) {
-            self::add_to_audit_messages('<p>' . __('System audit passed!', 'woocommerce-kis') . '</p>', self::MESSAGE_TYPE_SUCCESS);
+            self::add_to_audit_messages(__('System audit passed!', 'woocommerce-kis'), self::MESSAGE_TYPE_SUCCESS);
         } 
     }
 
@@ -260,7 +260,7 @@ final class SystemAudit {
                     (isset($option['warn_only']) && $option['warn_only']) ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR
                 );
 
-                $is_check_successful = false;
+                $is_check_successful = (isset($option['warn_only']) && $option['warn_only'])?: false;
             }
         }
 
@@ -333,7 +333,7 @@ final class SystemAudit {
      */
     static private function add_to_audit_messages($message, $message_type = self::MESSAGE_TYPE_ERROR) : void {
         $system_audit_notice = get_transient( 'system-audit-notice-' . strtolower($message_type) );
-        $system_audit_notice .= !empty($system_audit_notice) ? '<br />' . $message : '' . $message;
+        $system_audit_notice .= '<br />* ' . $message;
         set_transient('system-audit-notice-' . strtolower($message_type), $system_audit_notice, self::TRANSIENT_DATA_TTL);
     }
 
@@ -347,7 +347,7 @@ final class SystemAudit {
         if ( $system_audit_notice = get_transient( 'system-audit-notice-error' )) {
             ?>
             <div class="notice notice-error">
-                <p>OP Kassa: <?php echo __('Audit Failed:', 'woocommerce-kis') . '<br />' . $system_audit_notice; ?></p>
+                <p>OP Kassa: <?php echo '<b>' . __('Audit Failed:', 'woocommerce-kis') . '</b><br />' . $system_audit_notice; ?></p>
             </div>
             <?php
             delete_transient( 'system-audit-notice-error' );
@@ -359,7 +359,7 @@ final class SystemAudit {
         if ( $system_audit_notice = get_transient( 'system-audit-notice-warning' ) ) {
             ?>
             <div class="notice notice-warning is-dismissible">
-                <p>OP Kassa: <?php echo __('Audit Warnings:', 'woocommerce-kis') . '<br />' . $system_audit_notice; ?></p>
+                <p>OP Kassa: <?php echo '<b>' . __('Audit Warnings:', 'woocommerce-kis') . '</b><br />' . $system_audit_notice; ?></p>
             </div>
             <?php
             delete_transient( 'system-audit-notice-warning' );
@@ -368,7 +368,7 @@ final class SystemAudit {
         if ( $system_audit_notice = get_transient( 'system-audit-notice-success' ) ) {
             ?>
             <div class="notice notice-success is-dismissible">
-                <p>OP Kassa: <?php echo $system_audit_notice; ?></p>
+                <p>OP Kassa: <?php echo '<b>' . __('Audit Success!', 'woocommerce-kis') . '</b><br />' . $system_audit_notice; ?></p>
             </div>
             <?php
             delete_transient( 'system-audit-notice-success' );

@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 0.7.2
+* Version: 0.7.3
 * Requires at least: 4.9
 * Tested up to: 5.3
 * Requires PHP: 7.1
@@ -192,17 +192,19 @@ final class Plugin {
      */
     private function define_admin_hooks() {
 
+        /**
+         * Disable the redundant Mandatory-plugin check. This is handled in the \SystemAudit.php
+         */ 
         // Register the settings page for WooCommerce if OAuth plugin is enabled.
-        if ( $this->oauth_enabled() ) {
-            add_filter(
-                'woocommerce_get_settings_pages', [ SettingsPage::class, 'include_settings_page' ], 1, 1
-            );
-        }
-
+        // if ( $this->oauth_enabled() ) {
+        add_filter(
+            'woocommerce_get_settings_pages', [ SettingsPage::class, 'include_settings_page' ], 1, 1
+        );
+        // }
         // Display admin notice for the missing plugin.
-        else {
-            add_filter( 'admin_notices', [ $this->notice, 'oauth_plugin_notice' ] );
-        }
+        // else {
+        //     add_filter( 'admin_notices', [ $this->notice, 'oauth_plugin_notice' ] );
+        // }
 
         // Hook for displaying OAUTH errors.
         add_filter(

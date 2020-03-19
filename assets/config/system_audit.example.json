@@ -18,7 +18,7 @@
         },
         {
             "name": "woocommerce_calc_taxes",
-            "value": "1",
+            "value": "yes",
             "gui_name": "[WooCommerce Settings - General] = Enable taxes",
             "path": "/wp-admin/admin.php?page=wc-settings&tab=general",
             "warn_only": true

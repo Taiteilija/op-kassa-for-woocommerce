@@ -220,7 +220,7 @@ msgstr "Järjestelmätestin asetukset-tiedostoa ei löydy. Järjestelmätestiä 
 
 #. System audit passed
 msgid "System audit passed!"
-msgstr "Järjestelmätesti suoritettu onnistuneesti! Ongelmia ei löytynyt."
+msgstr "Järjestelmätesti suoritettu onnistuneesti!"
 
 #. Ini variable missing - error
 msgid "System variable not set:"
@@ -260,11 +260,15 @@ msgstr "Osoiterakenteen asetukset -> Yleiset asetukset = Artikkelin nimi"
 
 #. Audit Warning - error message
 msgid "Audit Warning:"
-msgstr "Järjestelmätestissä löytynyt mahdollisia ongelmia:"
+msgstr "Järjestelmätestissä löytyi mahdollisia ongelmia:"
 
 #. Audit failed - error message
 msgid "Audit Failed:"
-msgstr "Järjestelmätestissä löytynyt ongelmia:"
+msgstr "Järjestelmätestissä löytyi virheitä:"
+
+#. Audit success - message
+msgid "Audit Success!"
+msgstr "Järjestelmätestissä ei löytynyt virheitä!"
 
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
