@@ -257,7 +257,7 @@ final class SystemAudit {
                     ' <a href="' . get_site_url(null, $option['path'], 'admin') . 
                     '" >' . $option['name'] . '</a> ' . __('needs to be set to:', 'woocommerce-kis') . ' ' . 
                     __($option['gui_name'], 'woocommerce-kis'),
-                    ($option['warn_only']) ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR
+                    (isset($option['warn_only']) && $option['warn_only']) ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR
                 );
 
                 $is_check_successful = false;
@@ -351,7 +351,8 @@ final class SystemAudit {
             </div>
             <?php
             delete_transient( 'system-audit-notice-error' );
-            deactivate_plugins( plugin_basename( 'wp-woocommerce-kis-plugin/plugin.php' ) );
+            deactivate_plugins( plugin_basename( 'wp-woocommerce-kis-plugin/plugin.php' ) ); // Old plugin basename
+            deactivate_plugins( plugin_basename( 'op-kassa-for-woocommerce/plugin.php' ) );
             unset($_GET['activate']);
         }
 
