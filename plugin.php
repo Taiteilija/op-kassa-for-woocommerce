@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 0.7.4
+* Version: 0.7.5
 * Requires at least: 4.9
 * Tested up to: 5.3
 * Requires PHP: 7.1
