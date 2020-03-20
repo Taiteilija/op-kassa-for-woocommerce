@@ -160,7 +160,7 @@ final class Plugin {
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', 'https://bwoocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' );
+            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' );
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_WEBHOOK_URL' ) ) {
