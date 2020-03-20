@@ -152,19 +152,19 @@ final class Plugin {
         define( 'WOOCOMMERCE_KIS_VERSION', $kis_version );
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_OAUTH_URL', 'https://bep888guk2.execute-api.eu-central-1.amazonaws.com/prod-api/woo-oauth-initiate' );
+            define( 'KIS_WOOCOMMERCE_OAUTH_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-initiate' );
         }
 
         if ( ! defined( 'KIS_KASSA_OAUTH_URL' ) ) {
-            define( 'KIS_KASSA_OAUTH_URL', 'https://bep888guk2.execute-api.eu-central-1.amazonaws.com/prod-api/kassa-oauth-initiate' );
+            define( 'KIS_KASSA_OAUTH_URL', 'https://woocommerce.prod.op-kassa.fi/prod/kassa-oauth-initiate' );
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', 'https://bep888guk2.execute-api.eu-central-1.amazonaws.com/prod-api/woo-oauth-callback' );
+            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', 'https://bwoocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' );
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_WEBHOOK_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_WEBHOOK_URL', 'https://bep888guk2.execute-api.eu-central-1.amazonaws.com/prod-api/woo-webhook' );
+            define( 'KIS_WOOCOMMERCE_WEBHOOK_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-webhook' );
         }
     }
 
