@@ -6,7 +6,7 @@
         },
         {
             "name": "max_execution_time",
-            "limit": 300
+            "limit": 30
         }
     ],
     "wp_options": [
