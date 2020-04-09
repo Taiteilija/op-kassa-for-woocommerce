@@ -62,6 +62,7 @@ class Api {
         $param = $request->get_param( static::MODIFIED_AFTER_QUERY_VAR );
         if ( $param !== null ) {
             $unix_timestamp = (int) filter_var( $param, FILTER_SANITIZE_NUMBER_INT );
+            $unix_timestamp = $this->substractTimeDifference($unix_timestamp);
 
             $modified_after = date( 'c', $unix_timestamp );
 
@@ -76,6 +77,19 @@ class Api {
         }
 
         return $args;
+    }
+
+    /**
+     * Given date query timestamp is converted to local time in function: Wp_Date_Query::build_mysql_datetime
+     * We need to substract the time difference between the local timezone (set in Wordpress) and GMT
+     * to counter the effect of using the using of local time instead of GMT.
+     */
+    private function substractTimeDifference($timestamp) {
+        $wp_timezone = (array) wp_timezone();
+        $wp_date_time_zone = new \DateTimeZone($wp_timezone["timezone"]);
+        $wp_time = new \DateTime('now', $wp_date_time_zone);
+
+        return $timestamp - $wp_time->getOffset();
     }
 
     /**
