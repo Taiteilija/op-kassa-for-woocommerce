@@ -82,11 +82,21 @@ class Api {
     /**
      * Given date query timestamp is converted to local time in function: Wp_Date_Query::build_mysql_datetime
      * We need to substract the time difference between the local timezone (set in Wordpress) and GMT
-     * to counter the effect of using the using of local time instead of GMT.
+     * to counter the effect of using of the local time instead of GMT.
+     * 
+     * For example, assume we want to query items that has 'post_modified_gmt': 2020-04-09T11:25:05
+     * 1) We want to query items that have 'post_modified_gmt' after timestamp 1586427402 (GMT: Thursday, 9th April 2020, 10.16)
+     * 2) We get the timezone set in Wordpress (eg. 'Europe/Helsinki') and calculate the time difference to GMT (on summer time: 10800 seconds)
+     * 3) We substract the time difference from the original query timestamp: 1586427402 - 10800 = 1586416602 (GMT: Thursday, 9th April 2020, 07.16)
+     * 4) Wordpress then uses this new timestamp (-10800 seconds to GMT) to get the local time set in Wordpress which is +10800 seconds to GMT thus returning the correct GMT (GMT: Thursday, 9th April 2020, 10.16)
+     * 5) The item with 'post_item_gmt' of 2020-04-09T11:25:05 is now returned as it is modified after the given time (GMT: Thursday, 9th April 2020, 10.16)
+     * 
+     * Without this helper method Wordpress will return local time (LOCAL: Thursday, 9th April 2020, 13.16) and thus the item with 'post_item_gmt' of 2020-04-09T11:25:05
+     * is NOT returned as it is not modified after the given time.
      */
     private function substractTimeDifference($timestamp) {
         $wp_timezone = (array) wp_timezone();
-        $wp_date_time_zone = new \DateTimeZone($wp_timezone["timezone"]);
+        $wp_date_time_zone = new \DateTimeZone($wp_timezone['timezone']);
         $wp_time = new \DateTime('now', $wp_date_time_zone);
 
         return $timestamp - $wp_time->getOffset();
