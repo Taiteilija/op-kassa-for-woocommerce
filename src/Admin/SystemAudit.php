@@ -70,13 +70,19 @@ final class SystemAudit {
             }
 
             if (isset($system_audit_config['mandatory_plugins'])) {
-                $result = self::check_mandatory_plugins($system_audit_config['mandatory_plugins']);
+                $result = self::check_mandatory_plugins(
+                    $system_audit_config['mandatory_plugins'],  
+                    isset($system_audit_config['plugin_info']) ? $system_audit_config['plugin_info'] : []
+                );
                 $is_audit_passed = $is_audit_passed ? $result : false;
             }
 
             if (isset($system_audit_config['incompatible_plugins'])) {
-                $result = self::check_incompatible_plugins($system_audit_config['incompatible_plugins'], 
-                    isset($system_audit_config['pass_audit_on_warning']) ? $system_audit_config['pass_audit_on_warning'] : true);
+                $result = self::check_incompatible_plugins(
+                    $system_audit_config['incompatible_plugins'],
+                    isset($system_audit_config['plugin_info']) ? $system_audit_config['plugin_info'] : [],
+                    isset($system_audit_config['pass_audit_on_warning']) ? $system_audit_config['pass_audit_on_warning'] : true
+                );
                 $is_audit_passed = $is_audit_passed ? $result : false;
             }
 
@@ -201,19 +207,22 @@ final class SystemAudit {
      * Handles validating the incompatible plugins
      * 
      * @param array $plugins
-     * @param string $warn_only Flag for determining wether this check should fail the audit or just generate a warning
+     * @param bool $warn_only Flag for determining wether this check should fail the audit or just generate a warning
+     * @param array $plugin_info
      * @return bool
      */
-    static private function check_incompatible_plugins(array $plugins, $warn_only = true) : bool {
+    static private function check_incompatible_plugins(array $plugins, array $plugin_info, $warn_only = true) : bool {
         $is_check_successful = true;
         //wp_die(json_encode(get_option('active_plugins')));
         foreach ($plugins as $plugin) {
-            $result = is_plugin_active($plugin);
+            $plugin = self::get_plugin_info($plugin, $plugin_info);
+            $result = is_plugin_active($plugin['plugin']);
 
             if ($result) {
                 $message_type = $warn_only ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR;
-                self::add_to_audit_messages(__('The following active plugin may be incompatible:', 'woocommerce-kis') . 
-                    ' ' . $plugin, $message_type);
+                $msg = $plugin['url'] ? ' <a href="' . $plugin['url'] . '" target="_blank">' . $plugin['name'] . '</a>' : ' ' . $plugin['name'];
+
+                self::add_to_audit_messages(__('The following active plugin may be incompatible:', 'woocommerce-kis') . $msg, $message_type);
             }
             
             // Do not fail the audit when incompatible plugins are found if warn_only flag is enabled
@@ -227,20 +236,44 @@ final class SystemAudit {
      * Handles validating the mandatory plugins
      * 
      * @param array $plugins
+     * @param array $plugin_info
      * @return bool
      */
-    static private function check_mandatory_plugins(array $plugins) : bool {
+    static private function check_mandatory_plugins(array $plugins, array $plugin_info) : bool {
         $is_check_successful = true;
         //wp_die(json_encode(get_option('active_plugins')));
         foreach ($plugins as $plugin) {
-            if (!is_plugin_active($plugin)) {
-                self::add_to_audit_messages(__('The following plugin needs to be installed and activated:', 'woocommerce-kis') . 
-                    ' ' . $plugin);
+            $plugin = self::get_plugin_info($plugin, $plugin_info);
+            $msg = $plugin['url'] ? ' <a href="' . $plugin['url'] . '" target="_blank">' . $plugin['name'] . '</a>' : ' ' . $plugin['name'];
+
+            if (!is_plugin_active($plugin['plugin'])) {
+                self::add_to_audit_messages(__('The following plugin needs to be installed and activated:', 'woocommerce-kis') . $msg);
                 $is_check_successful = false;
             }
         }
 
         return $is_check_successful;
+    }
+
+    /**
+     * Helper method for getting plugin information
+     * 
+     * @param string $plugin
+     * @param array $plugin_info
+     * @return array
+     */
+    static private function get_plugin_info($plugin, array $plugin_info) {
+        foreach ($plugin_info as $info) {
+            if (isset($info['plugin']) && $info['plugin'] === $plugin) {
+                return $info;
+            }
+        }
+
+        return [
+            'plugin' => $plugin,
+            'name' => $plugin,
+            'url' => ''
+        ];
     }
 
     /**

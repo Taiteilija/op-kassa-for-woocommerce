@@ -34,6 +34,38 @@
         "polylang/polylang.php",
         "polylang-pro/polylang.php"
     ],
+    "plugin_info": [
+        { 
+            "plugin": "woocommerce/woocommerce.php",
+            "name": "WooCommerce",
+            "url": "https://wordpress.org/plugins/woocommerce/"
+        },
+        {
+            "plugin": "rest-api-oauth1/oauth-server.php",
+            "name": "WordPress REST API – OAuth 1.0a Server",
+            "url": "https://wordpress.org/plugins/rest-api-oauth1/"
+        },
+        { 
+            "plugin": "woocommerce-services/woocommerce-services.php",
+            "name": "WooCommerce Services",
+            "url": "https://wordpress.org/plugins/woocommerce-services/"
+        },
+        { 
+            "plugin": "sitepress-multilingual-cms/sitepress.php",
+            "name": "WordPress Multilingual",
+            "url": "https://wpml.org/"
+        },
+        { 
+            "plugin": "polylang/polylang.php",
+            "name": "Polylang",
+            "url": "https://wordpress.org/plugins/polylang/"
+        },
+        { 
+            "plugin": "polylang-pro/polylang.php",
+            "name": "Polylang Pro",
+            "url": "https://wordpress.org/plugins/polylang/"
+        }
+    ],
     "target_url": "https://httpstat.us/200",
     "pass_audit_on_warning": true
 }
