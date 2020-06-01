@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 0.7.8
+* Version: 0.7.9
 * Requires at least: 4.9
 * Tested up to: 5.3
 * Requires PHP: 7.1
@@ -284,6 +284,41 @@ final class Plugin {
                 );
             }
         );
+
+        // Prevent sending order emails for orders which are created via API
+        add_action('woocommerce_new_order', function ($order_id) {         
+             $order = wc_get_order($order_id);
+         
+             if ($order && $order->get_created_via() === 'rest-api') {
+               add_filter( 'woocommerce_email_enabled_new_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_cancelled_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_failed_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_on_hold_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_processing_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_completed_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_refunded_order', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_invoice', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+               add_filter( 'woocommerce_email_enabled_customer_note', function($yesno, $object){
+                 return false;
+               }, 10, 2);
+             }
+         }, 10, 1);
     }
 
     /**
