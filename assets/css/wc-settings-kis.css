@@ -89,3 +89,9 @@
 .system-audit-notice.success {
     border-left: 4px solid #46b450;
 }
+
+/* Temporarily disable Stock sync direction selection */
+#kis_stock_sync_direction {
+    pointer-events: none;
+    opacity: 0.5;
+}

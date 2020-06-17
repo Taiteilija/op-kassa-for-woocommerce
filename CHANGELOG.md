@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.10] - 2020-06-17
+
+### Changed
+- Disabled Stock sync direction selection. Stock sync direction is set the same as for the Product sync.
+
 ## [0.7.9] - 2020-06-01
 
 ### Changed
