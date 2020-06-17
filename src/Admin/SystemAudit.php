@@ -94,7 +94,13 @@ final class SystemAudit {
 
         if ( $is_audit_passed ) {
             self::add_to_audit_messages(__('System audit passed!', 'woocommerce-kis'), self::MESSAGE_TYPE_SUCCESS);
-        } 
+        }
+
+        // This is a temporary solution to always sync products and stocks to same direction
+        $product_sync = \get_option('kis_product_sync_direction');
+        if ($product_sync) {
+            \update_option('kis_stock_sync_direction', $product_sync);
+        }
     }
 
     /**
