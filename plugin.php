@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 0.7.10
+* Version: 0.7.11
 * Requires at least: 4.9
 * Tested up to: 5.3
 * Requires PHP: 7.1
@@ -284,6 +284,20 @@ final class Plugin {
                 );
             }
         );
+
+        // Prevent putting orders to 'completed'-status directly from 'pending'-status if they are Kassa-orders created via API.
+        // Auto completing of orders happens when no products on the order can be found from Woo.
+        add_action( 'woocommerce_order_status_changed', function ( $order_id, $old_status, $new_status, $instance ) {
+            $order = wc_get_order($order_id);
+            if ( $order && $order->get_created_via() === 'rest-api' && $old_status === 'pending' && $new_status === 'completed' ) {
+                // Can we trust this meta attribute is always on the order?
+                $is_kassa_purchase = get_post_meta( $order_id, '_kassa_purchase', true );
+                if ( $is_kassa_purchase ) {
+                    //wp_die('order_id:'.$order_id.', old_status:'.$old_status.', new_status:'.$new_status);
+                    $order->update_status( 'processing' );
+                }
+            }
+        }, 10, 4 );
 
         // Prevent sending order emails for orders which are created via API
         add_action('woocommerce_new_order', function ($order_id) {         
