@@ -194,8 +194,10 @@ final class Plugin {
         }
     }
 
+    /**
+     * Checks if some of the environmental urls are set (run before the plugin sets the urls)
+     */
     private function has_custom_environment_urls() {
-
         if (defined( 'KIS_WOOCOMMERCE_OAUTH_URL' ) ||
             defined( 'KIS_KASSA_OAUTH_URL' ) ||
             defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) || 

@@ -16,7 +16,6 @@ jQuery(document).ready($ => {
         }
     });
 
-    console.log($('input[name="kis_has_custom_environment"]').val());
     if ( $('input[name="kis_has_custom_environment"]').val() ) {
         //$('#kis_environment').addClass('disabled');
         $('#kis_environment').prop('disabled', true);
