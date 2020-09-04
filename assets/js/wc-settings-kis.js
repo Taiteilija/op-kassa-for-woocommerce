@@ -17,7 +17,6 @@ jQuery(document).ready($ => {
     });
 
     if ( $('input[name="kis_has_custom_environment"]').val() ) {
-        //$('#kis_environment').addClass('disabled');
         $('#kis_environment').prop('disabled', true);
     }
 });
