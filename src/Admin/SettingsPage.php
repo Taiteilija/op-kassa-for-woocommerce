@@ -124,13 +124,36 @@ class SettingsPage extends \WC_Settings_Page {
 
             [ 'type' => 'kis_system_audit' ],
 
+            [
+                'title' => __( 'OP Kassa Environment', 'woocommerce-kis' ),
+                'desc'  => __( 'Select the Kassa Environment (test / production). <div class="env-change-warning">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>', 'woocommerce-kis' ),
+                'type'  => 'title',
+                'id'    => 'kis_environment_settings',
+            ],
+
+            'kis_environment' => [
+                'type'    => 'select',
+                'title'   => __( 'OP Kassa Environment', 'woocommerce-kis' ),
+                'default' => 'test',
+                'id'      => 'kis_environment',
+                'options' => [
+                    'test' => __( 'Test Environment', 'woocommerce-kis' ),
+                    'production' => __( 'Production Environment', 'woocommerce-kis' ),
+                ],
+            ],
+
+            [
+                'type' => 'sectionend',
+                'id'   => 'kis_environment_settings',
+            ],
+
             [ 'type' => 'kis_oauth' ],
-            
+/*
             [
                 'type' => 'sectionend',
                 'id'   => 'kis_oauth_settings',
             ],
-
+*/
             [
                 'title' => __( 'Settings', 'woocommerce-kis' ),
                 'type'  => 'title',
@@ -233,6 +256,10 @@ class SettingsPage extends \WC_Settings_Page {
         $oauth           = new OAuth();
         $oauth_activated = $oauth->is_oauth_active();
 
+        $kis_environment = KIS_HAS_CUSTOM_ENVIRONMENT ? 
+            'CUSTOM (environmental urls probably set up in wp-config.php. These settings override the environment selection.)' : 
+            WOOCOMMERCE_KIS_ENVIRONMENT;
+
         $oauth_url        = $this->get_kassa_oauth_url();
         $cancel_oauth_url = $this->get_oauth_cancel_url();
         ?>
@@ -244,7 +271,19 @@ class SettingsPage extends \WC_Settings_Page {
                             <div class="postbox">
                                 <h2><span><?php esc_html_e( 'Integration status', 'woocommerce-kis' ); // phpcs:ignore ?></span></h2>
                                 <div class="inside">
-                                    <div class="kis-oauth">
+                                    <?php if (!$kis_environment) : ?>
+                                        <div class="env-warning">
+                                            <div>
+                                                <?= esc_html_e( 'Before You can connect to Kassa, please select the target environment above and save the settings page.', 'woocommerce-kis' ); ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>                                        
+                                    <div class="kis-oauth <?= $kis_environment ? '' : 'disabled'; ?>">
+                                        <div class="kis-environment">
+                                            <input type="hidden" name="kis_has_custom_environment" value="<?= KIS_HAS_CUSTOM_ENVIRONMENT; ?>" />
+                                            <span class="kis-environment-title"><?= esc_html_e( 'OP Kassa Environment', 'woocommerce-kis' ) . ': '; ?></span>
+                                            <span class="kis-environment-value"><?= $kis_environment ? esc_html_e( $kis_environment, 'woocommerce-kis' ) : esc_html_e( 'Not selected', 'woocommerce-kis' ); ?></span>
+                                        </div>
                                         <div class="kis-oauth__section kis-oauth__section--kassa">
                                             <?php if ( $oauth_activated ) : ?>
                                                 <p>

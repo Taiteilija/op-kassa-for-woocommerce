@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 0.7.11
+* Version: 0.8.0
 * Requires at least: 4.9
 * Tested up to: 5.5
 * Requires PHP: 7.1
@@ -118,6 +118,7 @@ final class Plugin {
      * Private constructor for the plugin singleton.
      */
     public function init() {
+        $this->has_custom_environment_urls();
         $this->set_constants();
 
         $this->notice                  = new Notice();
@@ -130,6 +131,7 @@ final class Plugin {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_global_hooks();
+        $this->disconnect_from_kassa_if_no_environment();
     }
 
     /**
@@ -151,20 +153,87 @@ final class Plugin {
 
         define( 'WOOCOMMERCE_KIS_VERSION', $kis_version );
 
+        $kis_environment = get_option('kis_environment', null);
+        if ( ! defined( 'WOOCOMMERCE_KIS_ENVIRONMENT' ) ) {
+            define( 'WOOCOMMERCE_KIS_ENVIRONMENT', $kis_environment );
+        }
+
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_OAUTH_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-initiate' );
+            $target_url = $kis_environment === 'production' ? 
+                'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-initiate' : 
+                'https://woocommerce.qa.op-kassa.fi/qa/woo-oauth-initiate';
+            define( 'KIS_WOOCOMMERCE_OAUTH_URL', $target_url );
         }
 
         if ( ! defined( 'KIS_KASSA_OAUTH_URL' ) ) {
-            define( 'KIS_KASSA_OAUTH_URL', 'https://woocommerce.prod.op-kassa.fi/prod/kassa-oauth-initiate' );
+            $target_url = $kis_environment === 'production' ?
+                'https://woocommerce.prod.op-kassa.fi/prod/kassa-oauth-initiate' :
+                'https://woocommerce.qa.op-kassa.fi/qa/kassa-oauth-initiate';
+            define( 'KIS_KASSA_OAUTH_URL', $target_url );
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' );
+            $target_url = $kis_environment === 'production' ?
+                'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' :
+                'https://woocommerce.qa.op-kassa.fi/qa/woo-oauth-callback';
+            define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', $target_url );
         }
 
         if ( ! defined( 'KIS_WOOCOMMERCE_WEBHOOK_URL' ) ) {
-            define( 'KIS_WOOCOMMERCE_WEBHOOK_URL', 'https://woocommerce.prod.op-kassa.fi/prod/woo-webhook' );
+            $target_url = $kis_environment === 'production' ?
+                'https://woocommerce.prod.op-kassa.fi/prod/woo-webhook' :
+                'https://woocommerce.qa.op-kassa.fi/qa/woo-webhook';
+            define( 'KIS_WOOCOMMERCE_WEBHOOK_URL', $target_url );
+        }
+
+        if ( ! defined( 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL' ) ) {
+            $target_url = $kis_environment === 'production' ?
+                'https://woocommerce.prod.op-kassa.fi/prod/wooClientSystemAuditConfig.json' :
+                'https://woocommerce.qa.op-kassa.fi/qa/wooClientSystemAuditConfig.json';
+            define( 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL', $target_url );
+        }
+    }
+
+    private function has_custom_environment_urls() {
+
+        if (defined( 'KIS_WOOCOMMERCE_OAUTH_URL' ) ||
+            defined( 'KIS_KASSA_OAUTH_URL' ) ||
+            defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) || 
+            defined( 'KIS_WOOCOMMERCE_WEBHOOK_URL' ) ) 
+        {
+            define('KIS_HAS_CUSTOM_ENVIRONMENT', true);
+        } else {
+            define('KIS_HAS_CUSTOM_ENVIRONMENT', false);
+        }
+    }
+
+    /**
+     * Disconnects the plugin from Kassa: 
+     * - if plugin is connected to Kassa but no environment is selected
+     */
+    private function disconnect_from_kassa_if_no_environment() {
+        $kis_environment = get_option('kis_environment', null);
+        $oauth = new OAuth( $this->notice );
+        // Force Kassa disconnect if no environment has been selected
+        if (!$kis_environment && $oauth->is_oauth_active()) {
+            $oauth->handle_oauth_delete(true);
+            header("Refresh:0");
+        }
+    }
+
+    /**
+     * After kis_environment-option add/update:
+     * - Disconnect from Kassa
+     * - Reload plugin to redefine new environment related constants
+     */
+    public function reload_plugin( $new_environment, $old_environment ) {
+        if ( $new_environment !== $old_environment && ! empty( $new_environment ) ) {
+            $oauth = new OAuth( $this->notice );
+
+            if( $oauth->is_oauth_active()) {
+                $oauth->handle_oauth_delete(true);
+            }
+            header("Refresh:0");
         }
     }
 
@@ -191,6 +260,10 @@ final class Plugin {
      * @access   private
      */
     private function define_admin_hooks() {
+
+        // Hooks to handle plugin environment change
+        add_filter( 'update_option_kis_environment', [$this, 'reload_plugin'], 10, 2 );
+        add_filter( 'add_option_kis_environment', [$this, 'reload_plugin'], 10, 2 );
 
         /**
          * Disable the redundant Mandatory-plugin check. This is handled in the \SystemAudit.php

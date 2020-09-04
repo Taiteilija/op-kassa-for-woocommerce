@@ -270,6 +270,50 @@ msgstr "Järjestelmätestissä löytyi virheitä:"
 msgid "Audit Success!"
 msgstr "Järjestelmätestissä ei löytynyt virheitä!"
 
+#. Kassa Environment - Title
+msgid "OP Kassa Environment"
+msgstr "OP Kassan toimintaympäristö"
+
+#. Kassa Environment - Desc
+msgid "Select the Kassa Environment (test / production). <div class=\"env-change-warning\">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>"
+msgstr "Valitse OP Kassan toimintaympäristö (testi / tuotanto). <div class=\"env-change-warning\">VAROITUS: Toimintaympäristön vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen.</div>"
+
+#. Kassa Environment - Selection option
+msgid "Test Environment"
+msgstr "Testiympäristö"
+
+#. Kassa Environment - Selection option
+msgid "Production Environment"
+msgstr "Tuotantoympäristö"
+
+#. Kassa Environment - Selection option value
+msgid "test"
+msgstr "Testiympäristö"
+
+#. Kassa Environment - Selection option value
+msgid "production"
+msgstr "Tuotantoympäristö"
+
+#. Kassa Environment - Custom
+msgid "CUSTOM (environmental urls probably set up in wp-config.php. These settings override the environment selection.)"
+msgstr "RÄÄTÄLÖITY (Toimintaympäristön osoitteet ovat todennäköisesti määritelty wp-config.php-tiedostossa. Nämä määrittelyt ajavat tämän sivun toimintaympäristövalinnan yli."
+
+#. Kassa Environment - Instructions
+msgid "Before You can connect to Kassa, please select the target environment above and save the settings page."
+msgstr "Ennen kuin voit yhdistää OP Kassaan, sinun tulee valita yllä OP Kassan toimintaympäristö ja tallentaa sivu."
+
+#. Kassa Environment - No selection value
+msgid "Not selected"
+msgstr "Ei valittu"
+
+#. Audit - Environment not selected - message
+msgid "The OP Kassa environment (test/production) has not been selected. Select the environment in the plugin <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>settings</b></a>."
+msgstr "OP Kassan toimintaympäristöä ( testi / tuotanto ) ei ole vielä valittu. Valitse toimintaympäristö lisäosan <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>Asetukset-sivulta</b></a>."
+
+#. Audit - Plugin not connected - message
+msgid "The OP Kassa-plugin has not yet been connected to Kassa. Connect to Kassa in the plugin <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>settings</b></a>."
+msgstr "OP Kassa fo WooCommerce-lisäosaa ei ole vielä yhdistetty OP Kassaan. Yhdistä OP Kassaan lisäosan <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>Asetukset-sivulta</b></a>."
+
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
 

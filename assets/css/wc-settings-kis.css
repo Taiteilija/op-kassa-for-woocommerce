@@ -4,7 +4,7 @@
 }
 
 .kis-oauth {
-    width: 400px;
+    /*width: 400px;*/
     max-width: 100%;
 }
 
@@ -94,4 +94,33 @@
 #kis_stock_sync_direction {
     pointer-events: none;
     opacity: 0.5;
+}
+
+.kis-oauth.disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.kis-environment {
+    margin-bottom: 10px;
+}
+
+.kis-environment-title {
+    font-weight: bold;
+}
+
+.env-warning {
+    color: #dc3232;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#kis_environment_settings-description .env-change-warning {
+    display: none;
+    color: #dc3232;
+    font-weight: bold;
+}
+
+#kis_environment_settings-description .env-change-warning.show {
+    display: block;
 }

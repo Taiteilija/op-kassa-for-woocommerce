@@ -8,6 +8,7 @@
 namespace CheckoutFinland\WooCommerceKIS\Admin;
 
 use CheckoutFinland\WooCommerceKIS\Admin\Notice;
+use CheckoutFinland\WooCommerceKIS\OAuth;
 
 if ( ! defined( 'ABSPATH' ) ) {
     die;
@@ -42,17 +43,24 @@ final class SystemAudit {
         $is_audit_passed = true;
         $plugin = \CheckoutFinland\WooCommerceKIS\plugin();
         
+        /*
         if ( ! defined( 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL' ) ) {
             define( 
                 'KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL',
                 'https://woocommerce.prod.op-kassa.fi/prod/wooClientSystemAuditConfig.json'
             );
         }
+        */
         $config_source_url = KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL;
 
         $system_audit_config = self::get_system_audit_configs($config_source_url);
 
         if ( $system_audit_config ) {
+
+            $result = self::check_environment();
+            $is_audit_passed = $is_audit_passed ? $result : false;
+            $result = self::check_kassa_connection();
+            $is_audit_passed = $is_audit_passed ? $result : false;
             
             if (isset($system_audit_config['ini_params'])) {
                 $result = self::check_ini_params($system_audit_config['ini_params']);
@@ -101,6 +109,41 @@ final class SystemAudit {
         if ($product_sync) {
             \update_option('kis_stock_sync_direction', $product_sync);
         }
+    }
+
+    /**
+     * Checks whether Kassa environment has been selected or not. Produces a warning.
+     * 
+     * @return bool
+     */
+    static private function check_environment() : bool {
+        if (is_null(WOOCOMMERCE_KIS_ENVIRONMENT)) {
+            self::add_to_audit_messages(__('The OP Kassa environment (test/production) has not been selected.' .
+                ' Select the environment in the plugin <a href="/wp-admin/admin.php?page=wc-settings&tab=kis"><b>settings</b></a>.', 
+                'woocommerce-kis'), self::MESSAGE_TYPE_WARNING);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Checks whether the plugin has been connected to Kassa or not. Produces a warning.
+     * 
+     * @return bool
+     */
+    static private function check_kassa_connection() : bool {
+        $oauth = new OAuth();
+        if (!$oauth->is_oauth_active()) {
+            self::add_to_audit_messages(__('The OP Kassa-plugin has not yet been connected to Kassa.' .
+                ' Connect to Kassa in the plugin <a href="/wp-admin/admin.php?page=wc-settings&tab=kis"><b>settings</b></a>.', 
+                'woocommerce-kis'), self::MESSAGE_TYPE_WARNING);
+
+            return false;
+        }
+
+        return true;
     }
 
     /**
