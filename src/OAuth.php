@@ -235,13 +235,15 @@ class OAuth {
 
     /**
      * Cancel the OAuth connection to KIS.
-     *
+     * 
+     * @param bool $force Forces oath delete handling without the url param
+     * 
      * @return void
      */
-    public function handle_oauth_delete() {
+    public function handle_oauth_delete($force = false) {
         $delete = filter_input( INPUT_GET, static::OAUTH_CANCEL_CMD, FILTER_SANITIZE_STRING );
 
-        if ( ! $delete ) {
+        if ( ! $delete && ! $force) {
             return;
         }
 

@@ -95,7 +95,31 @@ class Api {
      * is NOT returned as it is not modified after the given time.
      */
     private function substractTimeDifference($timestamp) {
-        $wp_timezone = (array) wp_timezone();
+
+        // wp_timezone()-function is a WP5.3-> feature.
+        // So here we make sure the timezone is received the old fashioned way for the old fashioned WP's.
+        $wp_timezone = null;
+        if ( ! function_exists( 'wp_timezone' ) ) {
+            $timezone_string = get_option( 'timezone_string' );
+    
+            if ( $timezone_string ) {
+                $wp_timezone = (array) new \DateTimeZone( $timezone_string );
+            } else {
+                $offset  = (float) get_option( 'gmt_offset' );
+                $hours   = (int) $offset;
+                $minutes = ( $offset - $hours );
+        
+                $sign      = ( $offset < 0 ) ? '-' : '+';
+                $abs_hour  = abs( $hours );
+                $abs_mins  = abs( $minutes * 60 );
+                $tz_offset = sprintf( '%s%02d:%02d', $sign, $abs_hour, $abs_mins );
+        
+                $wp_timezone =  (array) new \DateTimeZone( $tz_offset );
+            }
+        } else {
+            $wp_timezone = (array) wp_timezone(); 
+        }
+
         $wp_date_time_zone = new \DateTimeZone($wp_timezone['timezone']);
         $wp_time = new \DateTime('now', $wp_date_time_zone);
 
