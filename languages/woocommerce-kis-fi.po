@@ -274,9 +274,13 @@ msgstr "Järjestelmätestissä ei löytynyt virheitä!"
 msgid "OP Kassa Environment"
 msgstr "OP Kassan toimintaympäristö"
 
+#. Kassa Environment - Title
+msgid "Connect to OP Kassa Test Environment"
+msgstr "Yhdistä OP Kassan testiympäristöön"
+
 #. Kassa Environment - Desc
-msgid "Select the Kassa Environment (test / production). <div class=\"env-change-warning\">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>"
-msgstr "Valitse OP Kassan toimintaympäristö (testi / tuotanto). <div class=\"env-change-warning\">VAROITUS: Toimintaympäristön vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen.</div>"
+msgid "Check the \"Connect to OP Kassa Test Environment\"-option below to use Kassa Test Environment and save the settings. <div class=\"env-change-warning\">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>"
+msgstr "Valitse \"Yhdistä OP Kassan testiympäristöön\" halutessasi yhdistää OP Kassan testiympäristöön ja tallenna asetukset. <div class=\"env-change-warning\">VAROITUS: Toimintaympäristön vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen.</div>"
 
 #. Kassa Environment - Selection option
 msgid "Test Environment"

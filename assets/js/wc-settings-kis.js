@@ -4,10 +4,10 @@ jQuery(document).ready($ => {
         $('#kis_stock_sync_direction').val($('#kis_product_sync_direction').val());
     });
 
-    const orig_env = $('#kis_environment').val();
-    // Force setting page save on environment change
-    $('#kis_environment').on('change', (event) => {
-        const current_env = $(event.target).val();
+    const orig_env = $('#kis_test_environment_enabled').prop('checked');
+    // Show warning of Kassa disconnect when attempting to change the Kassa target environment
+    $('#kis_test_environment_enabled').on('change', (event) => {
+        const current_env = $(event.target).prop('checked');
 
         if ( orig_env !== current_env ) {
             $('#kis_environment_settings-description .env-change-warning').addClass('show');
@@ -17,6 +17,6 @@ jQuery(document).ready($ => {
     });
 
     if ( $('input[name="kis_has_custom_environment"]').val() ) {
-        $('#kis_environment').prop('disabled', true);
+        $('#kis_test_environment_enabled').prop('disabled', true);
     }
 });
