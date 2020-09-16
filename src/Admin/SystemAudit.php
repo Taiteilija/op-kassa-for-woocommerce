@@ -39,7 +39,6 @@ final class SystemAudit {
      * @return void
      */
     static public function perform_system_audit() : void {
-
         $is_audit_passed = true;
         $plugin = \CheckoutFinland\WooCommerceKIS\plugin();
 
@@ -83,6 +82,9 @@ final class SystemAudit {
                 );
                 $is_audit_passed = $is_audit_passed ? $result : false;
             }
+
+            $result = self::check_qTranslate_plugin_settings();
+            $is_audit_passed = $is_audit_passed ? $result : false;
 
         } else {
             self::add_to_audit_messages(__('System audit configuration file not found!', 'woocommerce-kis'), 
@@ -379,6 +381,26 @@ final class SystemAudit {
         }
         
         \curl_close($curl);
+
+        return $is_check_successful;
+    }
+
+    /**
+     * Custom check for qTranslate-plugins' settings using global $q_config-variable
+     * 
+     * @return bool
+     */
+    static private function check_qTranslate_plugin_settings() : bool {
+        global $q_config;
+        $is_check_successful = true;
+
+        if ( !is_null( $q_config ) && !is_null( $q_config['hide_default_language'] ) ) {
+            if ( $q_config['hide_default_language'] == false) {
+                self::add_to_audit_messages(__('qTranslate-plugin seems to be activated! To prevent issues with the OP Kassa-plugin, please select the <i>"Hide URL language information for default language."</i>-setting (if it is available) in the <i>"Settings"</i> -> <i>"Languages"</i> -> <i>"General"</i>.', 'woocommerce-kis'), 
+                self::MESSAGE_TYPE_WARNING);
+                $is_check_successful = false;
+            }
+        }
 
         return $is_check_successful;
     }

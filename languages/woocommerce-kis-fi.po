@@ -318,6 +318,10 @@ msgstr "OP Kassan toimintaympäristöä ( testi / tuotanto ) ei ole vielä valit
 msgid "The OP Kassa-plugin has not yet been connected to Kassa. Connect to Kassa in the plugin <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>settings</b></a>."
 msgstr "OP Kassa fo WooCommerce-lisäosaa ei ole vielä yhdistetty OP Kassaan. Yhdistä OP Kassaan lisäosan <a href=\"/wp-admin/admin.php?page=wc-settings&tab=kis\"><b>Asetukset-sivulta</b></a>."
 
+#. Custom qTranslate-plugin system audit warning
+msgid "qTranslate-plugin seems to be activated! To prevent issues with the OP Kassa-plugin, please select the <i>\"Hide URL language information for default language.\"</i>-setting (if it is available) in the <i>\"Settings\"</i> -> <i>\"Languages\"</i> -> <i>\"General\"</i>."
+msgstr "qTranslate-lisäosa näyttää olevan aktivoituna. Jotta kyseinen lisäosa toimisi oikein OP Kassa-lisäosan kanssa, tulee <i>\"Hide URL language information for default language.\"</i>-asetuksen olla valittuna yleisasetuksissa: <i>\"Asetukset\"</i> -> <i>\"Languages\"</i> -> <i>\"General\"</i>."
+
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
 
