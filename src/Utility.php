@@ -72,14 +72,14 @@ class Utility {
 
 
     /**
-     * Get the server name in a safe way.
+     * Get the server name using Worpress value from:
+     * 'Settings' -> 'General' -> 'WordPress address (URL)'
      *
      * @return string
      */
     public static function get_server_name(): string {
-        // @codingStandardsIgnoreStart - a safer way to access server variables on PHP7.x
-        $server_name  = filter_var( $_SERVER['SERVER_NAME'], FILTER_SANITIZE_URL ) ?: '';
-        // @codingStandardsIgnoreEnd
+        $server_name = filter_var( \wp_parse_url( get_site_url(), PHP_URL_HOST ), FILTER_SANITIZE_URL ) ?: '';
+        
         return $server_name;
     }
 
