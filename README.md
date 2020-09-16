@@ -53,6 +53,7 @@ The following constants should be set for development and test environments. If 
 
 - **KIS_WOOCOMMERCE_OAUTH_URL**: Defines the OP Kassa to WooCommerce OAuth initialization URL in OP Kassa.
 - **KIS_KASSA_OAUTH_URL**: Defines the OP Kassa to Kassa OAuth initialization URL in OP Kassa.
+- **KIS_KASSA_DELETE_OAUTH_URL**: Defines the OP Kassa to Kassa OAuth deletion URL in OP Kassa.
 - **KIS_WOOCOMMERCE_WEBHOOK_URL**: Defines the URL in OP Kassa for WooCommerce webhooks.
 - **KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL**
 - **KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL**: Defines the S3 API Gateway URL from where to fetch the configuration file for the plugin system audit

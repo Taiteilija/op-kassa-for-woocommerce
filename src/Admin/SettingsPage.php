@@ -430,9 +430,11 @@ class SettingsPage extends \WC_Settings_Page {
      * @return string
      */
     private function get_oauth_cancel_url() : string {
-        $url = Utility::get_current_admin_url();
+        $callback_url = Utility::get_current_admin_url();
+        $callback_url = Utility::add_query_parameter( $callback_url, Oauth::OAUTH_CANCEL_CMD, '1' );
 
-        $url = Utility::add_query_parameter( $url, Oauth::OAUTH_CANCEL_CMD, '1' );
+        $url = Utility::add_query_parameter( KIS_KASSA_DELETE_OAUTH_URL, 'domain', Utility::get_server_name() );
+        $url = Utility::add_query_parameter( $url, 'success_url', $callback_url );
 
         return $url;
     }

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Added a custom system check for Polylang-plugin setting.
 - Changed the method to get the site domain name. Old way had issues with url mismatches with server-variable and the url defined on Wordpress settings.
+- Call kassa-oauth-delete-function to remove the sync connection entry for the domain on Kassa disconnect.
 
 ## [0.8.0] - 2020-09-11
 
