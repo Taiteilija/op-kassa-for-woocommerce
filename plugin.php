@@ -179,6 +179,13 @@ final class Plugin {
             define( 'KIS_KASSA_OAUTH_URL', $target_url );
         }
 
+        if ( ! defined( 'KIS_KASSA_DELETE_OAUTH_URL' ) ) {
+            $target_url = KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED === 'no' ?
+                'https://woocommerce.prod.op-kassa.fi/prod/kassa-oauth-delete' :
+                'https://woocommerce.qa.op-kassa.fi/qa/kassa-oauth-delete';
+            define( 'KIS_KASSA_DELETE_OAUTH_URL', $target_url );
+        }
+
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) ) {
             $target_url = KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED === 'no' ?
                 'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' :
@@ -261,12 +268,35 @@ final class Plugin {
         $oauth = new OAuth( $this->notice );
 
         if ( $oauth->is_oauth_active() ) {
+            $this->oauth_delete();
             $oauth->handle_oauth_delete(true);
 
             return true;
         }
 
         return false;
+    }
+
+    /**
+     * Send 'Disconnect from Kassa'-request to the integration
+     * 
+     * @return bool disconnect was made
+     * 
+     * @since    0.8.1
+     * @access   private
+     */
+    private function oauth_delete() : bool {
+        $url = Utility::add_query_parameter( KIS_KASSA_DELETE_OAUTH_URL, 'domain', Utility::get_server_name() );
+
+        $curl = curl_init($url);
+        $result = \curl_exec($curl);
+        \curl_close($curl);
+
+        if ( !$result ) {
+            error_log('Kassa Disconnect failed! Check Kassa integration logs for further information.');
+        }
+
+        return $result;
     }
 
     /**
