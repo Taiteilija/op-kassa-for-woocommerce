@@ -23,7 +23,6 @@ You can download the latest release from the [Releases](https://github.com/OPMer
 4. This will reveal the plugin upload form. Here you need to click on the ‘Choose File’ button and select the plugin Zip file you downloaded earlier to your computer.
 5. After you have selected the file, you need to click on the ‘Install Now’ button.
 6. Once installed, you need to click on the Activate Plugin link to start using the plugin.
-
 ```
 
 ## Configuration
