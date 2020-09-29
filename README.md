@@ -14,7 +14,7 @@ Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize 
 
 ## Installation
 
-You can download the latest release from the [Releases](https://github.com/OPMerchantServices/op-kassa-for-woocommerce/releases) page.
+Download the latest release from the [Releases](https://github.com/OPMerchantServices/op-kassa-for-woocommerce/releases) page.
 
 ```
 1. Download the latest Zip package
@@ -25,14 +25,7 @@ You can download the latest release from the [Releases](https://github.com/OPMer
 6. Once installed, you need to click on the Activate Plugin link to start using the plugin.
 ```
 
-## Configuration
-
-The plugin adds OP Kassa configuration tab to WooCommerce settings. 
-
-The standard URL for this configuration tab is:
-```
-/wp-admin/admin.php?page=wc-settings&tab=kis
-```
+You also need to install [WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/) which can be found on Wordpress.org plugins repository. 
 
 ### System Audit
 
@@ -51,6 +44,15 @@ The System Audit checks for the following:
 5. System has connection to target systems
 
 If the System Audit fails or shows warnings, please contact OP Kassa support. And attach screenshot of the result with your message.
+
+## Configuration
+
+The plugin adds OP Kassa configuration tab to WooCommerce settings. 
+
+The standard URL for this configuration tab is:
+```
+/wp-admin/admin.php?page=wc-settings&tab=kis
+```
 
 ### Connecting to OP Kassa
 
