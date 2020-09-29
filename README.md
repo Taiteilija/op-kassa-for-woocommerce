@@ -1,7 +1,5 @@
 # OP Kassa for WooCommerce
 
-Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-
 **Contributors:** [Geniem](https://github.com/devgeniem), [Miika Arponen](https://github.com/nomafin), [Ville Siltala](https://github.com/villesiltala), [Tomi Henttinen](https://github.com/tomihenttinen), [Indre Solodov](https://github.com/Indre87) & [Joonas Loueranta](https://github.com/loueranta)
 
 **Requires**
@@ -12,7 +10,7 @@ Connect your OP Kassa and WooCommerce to synchronize products, orders and stock 
 
 ## Description
 
-This plugin integrates WooCommerce to OP Kassa.
+Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize products, orders and stock levels between the systems.
 
 ## Installation
 
