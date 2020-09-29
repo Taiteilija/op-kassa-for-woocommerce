@@ -1,28 +1,20 @@
-=== OP Kassa for WooCommerce ===
+# OP Kassa for WooCommerce
 
 Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
 
-- Contributors:
-    - [Geniem](https://github.com/devgeniem)
-    - [Miika Arponen](https://github.com/nomafin)
-    - [Ville Siltala](https://github.com/villesiltala)
-    - [Tomi Henttinen](https://github.com/tomihenttinen)
-    - [Indre Solodov](https://github.com/Indre87)
-    - [Aki Salmi](https://github.com/rinkkasatiainen)
-- Tags: wordpress, woocommerce
-- Requires:
-    - WordPress 4.9.0 and up. -> https://wordpress.org/download/
-    - WooCommerce 3.0.0 and up. -> https://wordpress.org/plugins/woocommerce/
-    - WordPress REST API – OAuth 1.0a Server -> https://wordpress.org/plugins/rest-api-oauth1/
-    - Requires PHP: 7.1
-    - License: MIT
-    - License URI: https://opensource.org/licenses/MIT
+**Contributors:** [Geniem](https://github.com/devgeniem), [Miika Arponen](https://github.com/nomafin), [Ville Siltala](https://github.com/villesiltala), [Tomi Henttinen](https://github.com/tomihenttinen), [Indre Solodov](https://github.com/Indre87) & [Joonas Loueranta](https://github.com/loueranta)
 
-== Description ==
+**Requires**
+- [WordPress](https://wordpress.org/download/): 4.9.0 and up
+- [WooCommerce](https://wordpress.org/plugins/woocommerce/): 3.0.0 and up
+- [WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/)
+- PHP: 7.1 and up
+
+## Description
 
 This plugin integrates WooCommerce to OP Kassa.
 
-== Installation ==
+## Installation
 
 Install with Composer: (You need composer for this -> https://getcomposer.org/)
 
@@ -45,26 +37,14 @@ Install by uploading Zip trough Wordpress : Get the zip from here -> https://git
 
 ```
 
-== Configurations ==
+## Configuration
 
-### Constants [Only for developers and testing]
+The plugin adds OP Kassa configuration page to WooCommerce settings. 
 
-The following constants should be set for development and test environments. If the constants are not set, they point to the production version of OP Kassa. For additional information please kontalt OP Kassa support.
-
-- **KIS_WOOCOMMERCE_OAUTH_URL**: Defines the OP Kassa to WooCommerce OAuth initialization URL in OP Kassa.
-- **KIS_KASSA_OAUTH_URL**: Defines the OP Kassa to Kassa OAuth initialization URL in OP Kassa.
-- **KIS_KASSA_DELETE_OAUTH_URL**: Defines the OP Kassa to Kassa OAuth deletion URL in OP Kassa.
-- **KIS_WOOCOMMERCE_WEBHOOK_URL**: Defines the URL in OP Kassa for WooCommerce webhooks.
-- **KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL**
-- **KIS_WOOCOMMERCE_SYSTEM_AUDIT_CONFIG_URL**: Defines the S3 API Gateway URL from where to fetch the configuration file for the plugin system audit
-
-### Admin
-
-This plugin creates an admin page in WooCommerce settings. The page is be found in the following URL (if the site follows Wordpress admin URL conventions):
+If the site follows standard Wordpress admin URL conventions the location of this configuration page is:
 ```
 /wp-admin/admin.php?page=wc-settings&tab=kis
 ```
-On this settings tab, the user can activate OAuth connections required by OP Kassa. Merchant details are found on the page after the connections are created successfully.
 
 ### System Audit
 
@@ -84,11 +64,24 @@ The system audit checks for the following:
 
 If the system audit fails or shows warnings, please contact OP Kassa support. And attach screenshot of the result with your message.
 
-== Frequently Asked Questions ==
+### Connecting to OP Kassa
 
-TBA
+On the OP Kassa settings tab, the user can activate connections required by OP Kassa.
 
-== Changelog ==
+Merchant details are found on the page after the connections are created successfully.
 
-= 0.7 =
-* First version published at WordPress.org
+### Settings
+
+There are currently two settings available for configuration on the OP Kassa tab in WooCommerce Settings: Product export direction and Order export direction.
+
+For **Product export** you can choose to disable it (default setting) or choose which way you want the product data to be synchronized, from WooCommerce to OP Kassa or vice versa. 
+
+For **Order export** you can choose to disable it (default setting) or choose to sychronize the order data both ways or just one way, from WooCommerce to OP Kassa or vice versa. 
+
+Choosing the Stock export setting is currently disabled and is linked to Product export setting.
+
+Please note that when you change the settings and hit save, it will take couple of minutes for the synchronization to start.
+
+### QA/Test environment
+
+If you are using OP Kassa QA environment, you need to select "Connect to OP Kassa Test Environment" on the settings tab. Please use this setting only if you know what you are doing as it will disable the connection to the production environment of OP Kassa.
