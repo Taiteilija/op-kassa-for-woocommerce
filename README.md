@@ -14,16 +14,7 @@ Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize 
 
 ## Installation
 
-Install with Composer: (You need composer for this -> https://getcomposer.org/)
-
-```
-1. Clone the repository to wordpress 'wp-content/plugins' directory.
-2. Run `composer install` inside the directory and wait for it to finish
-3. Activate the Plugin in Woocommerce Plugin management
-
-```
-
-Install by uploading Zip trough Wordpress : Get the zip from here -> https://github.com/OPMerchantServices/OP Kassa-for-woocommerce/archive/master.zip
+You can download the latest release from the [Releases](https://github.com/OPMerchantServices/op-kassa-for-woocommerce/releases) page.
 
 ```
 1. Download the latest Zip package
@@ -37,18 +28,18 @@ Install by uploading Zip trough Wordpress : Get the zip from here -> https://git
 
 ## Configuration
 
-The plugin adds OP Kassa configuration page to WooCommerce settings. 
+The plugin adds OP Kassa configuration tab to WooCommerce settings. 
 
-If the site follows standard Wordpress admin URL conventions the location of this configuration page is:
+The standard URL for this configuration tab is:
 ```
 /wp-admin/admin.php?page=wc-settings&tab=kis
 ```
 
 ### System Audit
 
-The Plugin has a system audit-feature which is ran on plugin activation and may be also ran manually from plugin settings page.
+The Plugin has a System Audit feature which is ran on plugin activation and may be also ran manually from plugin settings page.
 
-The system audit checks for the following:
+The System Audit checks for the following:
 
 1. The system settings requirements are met ('limit'-value needs to be met or exceeded):
     a. memory_limit
@@ -60,7 +51,7 @@ The system audit checks for the following:
 4. Incompatible plugins are not installed (may issue an warning or error)
 5. System has connection to target systems
 
-If the system audit fails or shows warnings, please contact OP Kassa support. And attach screenshot of the result with your message.
+If the System Audit fails or shows warnings, please contact OP Kassa support. And attach screenshot of the result with your message.
 
 ### Connecting to OP Kassa
 
