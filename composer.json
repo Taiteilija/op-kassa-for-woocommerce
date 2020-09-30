@@ -29,6 +29,11 @@
             "role": "Manager"
         }
     ],
+    "support": {
+        "email": "asiakaspalvelu@op-kassa.fi",
+        "issues": "https://github.com/OPMerchantServices/op-kassa-for-woocommerce/issues",
+        "source": "https://github.com/OPMerchantServices/op-kassa-for-woocommerce"
+    },
     "repositories": [
         {
             "type": "vcs",
