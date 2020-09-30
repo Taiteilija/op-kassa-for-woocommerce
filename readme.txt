@@ -15,7 +15,6 @@ Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize 
 
 Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize products, orders and stock levels between the systems.
 
-
 == Installation ==
 
 Follow these easy steps to install the plugin:
@@ -24,13 +23,11 @@ Follow these easy steps to install the plugin:
 1. Activate the plugin through the 'Plugins' screen in WordPress
 1. Use the WooCommerce -> Settings -> OP Kassa screen to configure the plugin
 
-
 == Frequently Asked Questions ==
 
 = I can't connect to OP Kassa? =
 
 Head over to OP Kassa admin panel and make sure that you have activated the WooCommerce addon.
-
 
 == Changelog ==
 
