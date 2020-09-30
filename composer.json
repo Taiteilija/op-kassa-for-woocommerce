@@ -1,21 +1,39 @@
 {
-    "name": "checkoutfinland/wp-woocommerce-kis-plugin",
+    "name": "op-merchant-services/op-kassa-for-woocommerce",
     "type": "wordpress-plugin",
-    "description": "WooCommerce extension for OP Kassa intergration.",
+    "description": "Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.",
     "authors": [
         {
+            "name": "Miika Arponen",
+            "homepage": "http://github.com/nomafin",
+            "role": "Developer"
+        },
+        {
             "name": "Ville Siltala",
-            "email": "ville.siltala@geniem.com",
             "homepage": "http://github.com/villesiltala",
             "role": "Developer"
+        },
+        {
+            "name": "Tomi Henttinen",
+            "homepage": "https://github.com/tomihenttinen",
+            "role": "Developer"
+        },
+        {
+            "name": "Indre Solodov",
+            "homepage": "https://github.com/Indre87",
+            "role": "Developer"
+        },
+        {
+            "name": "Joonas Loueranta",
+            "homepage": "https://github.com/loueranta",
+            "role": "Manager"
         }
     ],
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@git.vuola.net:pivo-kassa/wp-woocommerce-kis-plugin.git"
+            "url": "git@github.com:OPMerchantServices/op-kassa-for-woocommerce.git"
           }
-
     ],
     "keywords": [
         "wordpress", "woocommerce", "op kassa", "checkout finland"
