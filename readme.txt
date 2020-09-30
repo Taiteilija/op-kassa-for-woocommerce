@@ -20,7 +20,7 @@ Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize 
 Follow these easy steps to install the plugin:
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
+1. Activate the plugin through the 'Plugins' screen in WordPress and follow instructions
 1. Use the WooCommerce -> Settings -> OP Kassa screen to configure the plugin
 
 == Frequently Asked Questions ==
