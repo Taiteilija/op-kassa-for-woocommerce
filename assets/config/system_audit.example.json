@@ -1,71 +1,76 @@
 {
-    "ini_params": [
-        {
-            "name": "memory_limit",
-            "limit": 256
-        },
-        {
-            "name": "max_execution_time",
-            "limit": 30
-        }
-    ],
-    "wp_options": [
-        {
-            "name": "permalink_structure",
-            "value": "/%postname%/",
-            "gui_name": "[Common Settings] = Post name",
-            "path": "/wp-admin/options-permalink.php"
-        },
-        {
-            "name": "woocommerce_calc_taxes",
-            "value": "yes",
-            "gui_name": "[WooCommerce Settings - General] = Enable taxes",
-            "path": "/wp-admin/admin.php?page=wc-settings&tab=general",
-            "warn_only": true
-        }
-    ],
-    "mandatory_plugins": [
-        "woocommerce/woocommerce.php",
-        "rest-api-oauth1/oauth-server.php"
-    ],
-    "incompatible_plugins": [
-        "woocommerce-services/woocommerce-services.php",
-        "sitepress-multilingual-cms/sitepress.php",
-        "polylang/polylang.php",
-        "polylang-pro/polylang.php"
-    ],
-    "plugin_info": [
-        { 
-            "plugin": "woocommerce/woocommerce.php",
-            "name": "WooCommerce",
-            "url": "https://wordpress.org/plugins/woocommerce/"
-        },
-        {
-            "plugin": "rest-api-oauth1/oauth-server.php",
-            "name": "WordPress REST API – OAuth 1.0a Server",
-            "url": "https://wordpress.org/plugins/rest-api-oauth1/"
-        },
-        { 
-            "plugin": "woocommerce-services/woocommerce-services.php",
-            "name": "WooCommerce Services",
-            "url": "https://wordpress.org/plugins/woocommerce-services/"
-        },
-        { 
-            "plugin": "sitepress-multilingual-cms/sitepress.php",
-            "name": "WordPress Multilingual",
-            "url": "https://wpml.org/"
-        },
-        { 
-            "plugin": "polylang/polylang.php",
-            "name": "Polylang",
-            "url": "https://wordpress.org/plugins/polylang/"
-        },
-        { 
-            "plugin": "polylang-pro/polylang.php",
-            "name": "Polylang Pro",
-            "url": "https://wordpress.org/plugins/polylang/"
-        }
-    ],
-    "target_url": "https://httpstat.us/200",
-    "pass_audit_on_warning": true
+  "ini_params": [
+    {
+      "name": "memory_limit",
+      "limit": 256
+    },
+    {
+      "name": "max_execution_time",
+      "limit": 30
+    }
+  ],
+  "wp_options": [
+    {
+      "name": "permalink_structure",
+      "value": "/%postname%/",
+      "gui_name": "[Common Settings] = Post name",
+      "path": "/wp-admin/options-permalink.php"
+    },
+    {
+      "name": "woocommerce_calc_taxes",
+      "value": "yes",
+      "gui_name": "[WooCommerce Settings - General] = Enable taxes",
+      "path": "/wp-admin/admin.php?page=wc-settings&tab=general",
+      "warn_only": true
+    }
+  ],
+  "mandatory_plugins": [
+    "woocommerce/woocommerce.php",
+    "rest-api-oauth1/oauth-server.php"
+  ],
+  "incompatible_plugins": [
+    "woocommerce-services/woocommerce-services.php",
+    "sitepress-multilingual-cms/sitepress.php",
+    "polylang/polylang.php",
+    "qtranslate-x/qtranslate.php"
+  ],
+  "plugin_info": [
+    {
+      "plugin": "woocommerce/woocommerce.php",
+      "name": "WooCommerce",
+      "url": "https://wordpress.org/plugins/woocommerce/"
+    },
+    {
+      "plugin": "rest-api-oauth1/oauth-server.php",
+      "name": "WordPress REST API – OAuth 1.0a Server",
+      "url": "https://wordpress.org/plugins/rest-api-oauth1/"
+    },
+    {
+      "plugin": "woocommerce-services/woocommerce-services.php",
+      "name": "WooCommerce Services",
+      "url": "https://wordpress.org/plugins/woocommerce-services/"
+    },
+    {
+      "plugin": "sitepress-multilingual-cms/sitepress.php",
+      "name": "WordPress Multilingual",
+      "url": "https://wpml.org/"
+    },
+    {
+      "plugin": "polylang/polylang.php",
+      "name": "Polylang",
+      "url": "https://wordpress.org/plugins/polylang/",
+      "desc": "The free Polylang-plugin needs to be upgraded to <a href=\"https://polylang.pro/downloads/polylang-pro/\">'Polylang Pro'</a> and <a href=\"https://polylang.pro/downloads/polylang-for-woocommerce/\">'Polylang for Woocommerce'</a>-plugins. <a href=\"https://polylang.pro/downloads/polylang-pro-for-woocommerce/\">'Polylang Pro for Woocommerce'</a>-bundle includes both mandatory plugins."
+    },
+    {
+      "plugin": "polylang-pro/polylang.php",
+      "name": "Polylang Pro",
+      "url": "https://wordpress.org/plugins/polylang/"
+    },
+    {
+      "plugin": "qtranslate-x/qtranslate.php",
+      "name": "qTranslate-X",
+      "url": "https://wordpress.org/plugins/qtranslate-x/"
+    }
+  ],
+  "pass_audit_on_warning": true
 }

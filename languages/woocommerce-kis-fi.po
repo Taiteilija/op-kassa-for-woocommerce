@@ -322,6 +322,18 @@ msgstr "OP Kassa fo WooCommerce-lisäosaa ei ole vielä yhdistetty OP Kassaan. Y
 msgid "qTranslate-plugin seems to be activated! To prevent issues with the OP Kassa-plugin, please select the <i>\"Hide URL language information for default language.\"</i>-setting (if it is available) in the <i>\"Settings\"</i> -> <i>\"Languages\"</i> -> <i>\"General\"</i>."
 msgstr "qTranslate-lisäosa näyttää olevan aktivoituna. Jotta kyseinen lisäosa toimisi oikein OP Kassa-lisäosan kanssa, tulee <i>\"Hide URL language information for default language.\"</i>-asetuksen olla valittuna yleisasetuksissa: <i>\"Asetukset\"</i> -> <i>\"Languages\"</i> -> <i>\"General\"</i>."
 
+#. System audit instructions for Polylang-plugin
+msgid "The free Polylang-plugin is recommended to be upgraded to <a href=\"https://polylang.pro/downloads/polylang-pro/\">'Polylang Pro'</a> and <a href=\"https://polylang.pro/downloads/polylang-for-woocommerce/\">'Polylang for Woocommerce'</a>-plugins. <a href=\"https://polylang.pro/downloads/polylang-pro-for-woocommerce/\">'Polylang Pro for Woocommerce'</a>-bundle includes both mandatory plugins."
+msgstr "Ilmainen Polylang-lisäosa on suositeltavaa päivittää <a href=\"https://polylang.pro/downloads/polylang-pro/\">'Polylang Pro'</a> sekä <a href=\"https://polylang.pro/downloads/polylang-for-woocommerce/\">'Polylang for Woocommerce'</a>-lisäosiin.  <a href=\"https://polylang.pro/downloads/polylang-pro-for-woocommerce/\">'Polylang Pro for Woocommerce'</a>-paketti sisältää molemmat lisäosat."
+
+#. OP Kassa connection failed due to 'addon not subscribed'-error
+msgid "WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa: Woocommerce addon has not been activated. Activate the addon in the OP Kassa management panel and try again."
+msgstr "WooCommerce OP Kassa: WooCommercen integraation autentikaatiossa tapahtui virhe: OP Kassan WooCommerce-laajennosta ei ole aktivoitu. Tilaa laajennos OP Kassan hallintapaneelista ja yritä uudelleen."
+
+#. OP Kassa connection failed due to unknown error code
+msgid "WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa (error code: "
+msgstr "WooCommerce OP Kassa: WooCommercen integraation autentikaatiossa tapahtui virhe (virhekoodi: "
+
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
 

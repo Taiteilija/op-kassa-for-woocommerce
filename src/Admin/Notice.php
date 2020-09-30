@@ -99,6 +99,18 @@ class Notice {
                     'woocommerce-kis'
                 );
                 break;
+            case 'ADDON_NOT_SUBSCRIBED':
+                $error = __(
+                    'WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa: Woocommerce addon has not been activated. Activate the addon in the OP Kassa management panel and try again.', // phpcs:ignore
+                    'woocommerce-kis'
+                );
+                break;
+            default:
+                $error = __(
+                    'WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa (error code: ', // phpcs:ignore
+                    'woocommerce-kis'
+                )  . $error . ').';
+                break;
         }
         ?>
         <div class="notice notice-error">
