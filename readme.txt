@@ -1,6 +1,6 @@
 === OP Payment Service for WooCommerce ===
 Contributors: loueranta
-Donate link: https://www.op-kassa.fi/
+Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
 Tested up to: 5.5
