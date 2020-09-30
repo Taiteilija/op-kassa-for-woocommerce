@@ -245,6 +245,7 @@ final class SystemAudit {
             if ($result) {
                 $message_type = $warn_only ? self::MESSAGE_TYPE_WARNING : self::MESSAGE_TYPE_ERROR;
                 $msg = $plugin['url'] ? ' <a href="' . $plugin['url'] . '" target="_blank">' . $plugin['name'] . '</a>' : ' ' . $plugin['name'];
+                $msg .= isset($plugin['desc']) ? '<span style="display: inline-block; font-size: smaller; background: #f1f1f1; padding: 10px 5px;">' . __($plugin['desc'], 'woocommerce-kis') . '</span>' : '';
 
                 self::add_to_audit_messages(__('The following active plugin may be incompatible:', 'woocommerce-kis') . $msg, $message_type);
             }
