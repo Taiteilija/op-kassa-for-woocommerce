@@ -1,6 +1,6 @@
 # OP Kassa for WooCommerce
 
-**Contributors:** [Geniem](https://github.com/devgeniem), [Miika Arponen](https://github.com/nomafin), [Ville Siltala](https://github.com/villesiltala), [Tomi Henttinen](https://github.com/tomihenttinen), [Indre Solodov](https://github.com/Indre87) & [Joonas Loueranta](https://github.com/loueranta)
+**Contributors:** [Miika Arponen](https://github.com/nomafin), [Ville Siltala](https://github.com/villesiltala), [Tomi Henttinen](https://github.com/tomihenttinen), [Indre Solodov](https://github.com/Indre87) & [Joonas Loueranta](https://github.com/loueranta)
 
 **Requires**
 - [WordPress](https://wordpress.org/download/): 4.9.0 and up
