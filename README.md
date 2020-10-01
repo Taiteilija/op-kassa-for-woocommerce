@@ -25,7 +25,8 @@ Download the latest release from the [Releases](https://github.com/OPMerchantSer
 6. Once installed, you need to click on the Activate Plugin link to start using the plugin.
 ```
 
-You also need to install [WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/) which can be found on Wordpress.org plugins repository. 
+
+You will also need to install [WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/), which can be found from Wordpress.org plugins repository. 
 
 ### System Audit
 
