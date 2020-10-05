@@ -15,10 +15,10 @@ Connect your [OP Kassa](https://www.op-kassa.fi) and WooCommerce to synchronize 
 ## Installation
 
 1. Download the latest OP Kassa for Woocommerce plugin from the [Releases](https://github.com/OPMerchantServices/op-kassa-for-woocommerce/releases) page.
-2. Log on to WordPress admin area and navigate to Plugins -> Add New.
-3. Click on the "Upload Plugin" button on top of the page and install + activate the zip packaged plugin you downloaded.
-4. Go back to Plugins -> Add New and search for "[WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/)" and install + activate it.
-5. To finish setup head over to WooCommerce -> Settings and click on the "OP Kassa" tab to configure the plugin.
+2. Log on to WordPress admin area and navigate to **Plugins** -> **Add New**.
+3. Click on the "Upload Plugin" button on top of the page and install + activate the zip packaged plugin you just downloaded.
+4. Go back to **Plugins** -> **Add New** and search, install and activate "[WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/)".
+5. To finish setup head over to **WooCommerce** -> **Settings** and click on the "OP Kassa" tab to configure the plugin.
 
 ### System Audit
 
@@ -27,11 +27,11 @@ The Plugin has a System Audit feature which is ran on plugin activation and may 
 The System Audit checks for the following:
 
 1. The system settings requirements are met ('limit'-value needs to be met or exceeded):
-    1. memory_limit
-    2. max_execution_time
+    1. `memory_limit`
+    2. `max_execution_time`
 2. WordPress-options are configured properly ('value'-value needs to match the Wordpress configuration):
-    1. permalink_structure
-    2. woocommerce_calc_taxes (warn only)
+    1. `permalink_structure`
+    2. `woocommerce_calc_taxes` (warn only)
 3. Mandatory plugins are installed/activated
 4. Incompatible plugins are not installed (may issue an warning or error)
 5. System has connection to target systems
