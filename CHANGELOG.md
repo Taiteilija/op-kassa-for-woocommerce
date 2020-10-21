@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Changed all direct curl-usages to Wordpress HTTP API-calls.
+- Added sanitation for all POST/GET/SERVER-inputs.
 
 ## [1.0.0] - 2020-10-05
 

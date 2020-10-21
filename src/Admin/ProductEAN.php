@@ -87,12 +87,21 @@ final class ProductEAN {
      * @return void
      */
     public function save_variation_ean($variation_id, $i) {
-        $ean_raw_array = $_POST[self::META_KEY_NAME];
-
         // Sanitize input
+        // Returns eg. {"_kassa_ean":["ean_1","ean_2","ean_3"]}
+        $ean_raw_array_wrapper = filter_input_array(
+            INPUT_POST, 
+            array(
+                self::META_KEY_NAME => array(
+                    'filter' => FILTER_SANITIZE_STRING,
+                    'flags'  => FILTER_REQUIRE_ARRAY,
+                )
+            )
+        );
+        
         $ean = '';
         try {
-            $ean = filter_var($ean_raw_array[$i], FILTER_SANITIZE_STRING);
+            $ean = $ean_raw_array_wrapper[self::META_KEY_NAME][$i];
         }
         catch (\RuntimeException $e) {
             // Ignore errors and save an empty value

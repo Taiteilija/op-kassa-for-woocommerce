@@ -214,11 +214,14 @@ class SettingsPage extends \WC_Settings_Page {
      */
     public function system_audit() {
         $system_audit_notice = "";
+        $sys_audit_url = esc_html_e( filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL ) ) . '&sys_audit=true';
 
-        if (strpos($_SERVER['QUERY_STRING'], 'sys_audit=true') !== false) {
+        
+        if ( strpos( filter_input( INPUT_SERVER, 'QUERY_STRING', FILTER_SANITIZE_URL ), 'sys_audit=true') !== false ) {
             $system_audit = new SystemAudit();
             $system_audit->perform_system_audit();
             $system_audit_notice = __('System audit report:', 'woocommerce-kis') . $system_audit->get_system_audit_notice();
+            $sys_audit_url = esc_html_e( filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL ) );
         }
 
         ?>
@@ -231,7 +234,7 @@ class SettingsPage extends \WC_Settings_Page {
                             <div class="inside">                    
                                 <p>
                                      <a
-                                        href="<?php echo esc_html_e($_SERVER['REQUEST_URI']) . '&sys_audit=true'; ?>"
+                                        href="<?php echo $sys_audit_url; ?>"
                                         class="button kis-system_audit-link">
                                         <?php esc_html_e( 'Run system audit', 'woocommerce-kis' ); ?>
                                     </a>
