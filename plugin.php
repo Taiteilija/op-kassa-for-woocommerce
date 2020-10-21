@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 1.0.0
+* Version: 1.0.1
 * Requires at least: 4.9
 * Tested up to: 5.5
 * Requires PHP: 7.1
@@ -288,15 +288,14 @@ final class Plugin {
     private function oauth_delete() : bool {
         $url = Utility::add_query_parameter( KIS_KASSA_DELETE_OAUTH_URL, 'domain', Utility::get_server_name() );
 
-        $curl = curl_init($url);
-        $result = \curl_exec($curl);
-        \curl_close($curl);
+        $response = wp_remote_retrieve_body( wp_remote_get( $url ));
+        $http_code = wp_remote_retrieve_response_code( $response );
 
-        if ( !$result ) {
-            error_log('Kassa Disconnect failed! Check Kassa integration logs for further information.');
+        if ( !$response || $http_code >= 400) {
+            error_log('Kassa Disconnect failed! Check OP Kassa integration logs for further information.');
         }
 
-        return $result;
+        return $response;
     }
 
     /**
@@ -422,7 +421,6 @@ final class Plugin {
                 // Can we trust this meta attribute is always on the order?
                 $is_kassa_purchase = get_post_meta( $order_id, '_kassa_purchase', true );
                 if ( $is_kassa_purchase ) {
-                    //wp_die('order_id:'.$order_id.', old_status:'.$old_status.', new_status:'.$new_status);
                     $order->update_status( 'processing' );
                 }
             }

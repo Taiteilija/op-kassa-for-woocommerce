@@ -336,54 +336,7 @@ final class SystemAudit {
      * @return array|null
      */
     static private function get_system_audit_configs($source_url) {
-        $curl = curl_init($source_url);
-
-        \curl_setopt_array($curl, [
-            CURLOPT_SSL_VERIFYPEER => false,
-            CURLOPT_RETURNTRANSFER => true
-        ]);
-
-        $result = \curl_exec($curl);
-        curl_close($curl);
-        $result = $result?: "";
-        
-        return json_decode($result, true);
-    }
-
-    /**
-     * Handles checking the plugin connectivity to the target system
-     * 
-     * @param string $target_url
-     * @return bool
-     */
-    static private function check_connectivity($target_url) : bool {
-        $is_check_successful = false;
-
-        $curl = curl_init($target_url);
-        \curl_setopt_array($curl, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HEADER         => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_ENCODING       => "",
-            CURLOPT_AUTOREFERER    => true,
-            CURLOPT_CONNECTTIMEOUT => 120,
-            CURLOPT_TIMEOUT        => 120,
-            CURLOPT_MAXREDIRS      => 10
-        ]);
-
-        $result = \curl_exec($curl);
-        $http_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        $is_check_successful = ( $http_code > 0 && $http_code < 400 );
-        $http_code = ($http_code != 0) ? $http_code : '0 - Url not found: ' . $target_url;
-
-        if (!$is_check_successful) {
-            self::add_to_audit_messages(__('The target system URL did respond with an error code:', 'woocommerce-kis') . 
-                ' ' . $http_code);
-        }
-        
-        \curl_close($curl);
-
-        return $is_check_successful;
+        return json_decode( wp_remote_retrieve_body( wp_remote_get( $source_url )), true);
     }
 
     /**
