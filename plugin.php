@@ -288,14 +288,13 @@ final class Plugin {
     private function oauth_delete() : bool {
         $url = Utility::add_query_parameter( KIS_KASSA_DELETE_OAUTH_URL, 'domain', Utility::get_server_name() );
 
-        $response = wp_remote_retrieve_body( wp_remote_get( $url ));
-        $http_code = wp_remote_retrieve_response_code( $response );
+        $http_code = wp_remote_retrieve_response_code( wp_remote_get( $url ) );
 
-        if ( !$response || $http_code >= 400) {
+        if ( $http_code >= 400) {
             error_log('Kassa Disconnect failed! Check OP Kassa integration logs for further information.');
         }
 
-        return $response;
+        return $http_code < 400;
     }
 
     /**
