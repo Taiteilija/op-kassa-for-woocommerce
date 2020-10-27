@@ -1,4 +1,4 @@
-=== OP Payment Service for WooCommerce ===
+=== OP Kassa for WooCommerce ===
 Contributors: loueranta
 Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
@@ -30,6 +30,9 @@ Follow these easy steps to install the plugin:
 Head over to OP Kassa admin panel and make sure that you have activated the WooCommerce addon.
 
 == Changelog ==
+
+= 1.0.3 =
+* Fixed a typo in the plugin name
 
 = 1.0.2 =
 * Released to WordPress.org directory
