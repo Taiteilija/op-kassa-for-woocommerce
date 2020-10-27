@@ -4,7 +4,7 @@ Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
 Tested up to: 5.5
-Stable tag: 1.0.0
+Stable tag: 1.0.2
 Requires PHP: 7.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -31,5 +31,5 @@ Head over to OP Kassa admin panel and make sure that you have activated the WooC
 
 == Changelog ==
 
-= 1.0.0 =
-* First version published at WordPress.org
+= 1.0.2 =
+* Released to WordPress.org directory
