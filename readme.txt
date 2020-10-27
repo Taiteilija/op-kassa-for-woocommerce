@@ -4,7 +4,7 @@ Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
 Tested up to: 5.5
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 7.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
