@@ -60,7 +60,7 @@ class Utility {
         $protocol    = \is_ssl() ? 'https://' : 'http://';
         $server_name = static::get_server_name();
         // @codingStandardsIgnoreStart - a safer way to access server variables on PHP7.x
-        $request_uri  = filter_input( INPUT_SERVER, 'REQUEST_URI', FILTER_SANITIZE_URL ) ?: '';
+        $request_uri  = filter_var( $_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL ) ?: '';
         // @codingStandardsIgnoreEnd
 
         $current_url = \wp_parse_url( $protocol . $server_name . $request_uri );

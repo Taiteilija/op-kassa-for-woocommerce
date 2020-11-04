@@ -4,7 +4,7 @@ Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
 Tested up to: 5.5
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 7.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -32,6 +32,9 @@ Follow these easy steps to install the plugin:
 Head over to OP Kassa admin panel and make sure that you have activated the WooCommerce addon.
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed a bug relating to Kassa oauth callback url 
 
 = 1.0.3 =
 * Updated installation instructions
