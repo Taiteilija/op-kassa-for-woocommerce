@@ -334,6 +334,21 @@ msgstr "WooCommerce OP Kassa: WooCommercen integraation autentikaatiossa tapahtu
 msgid "WooCommerce OP Kassa: An error occurred while authenticating the integration to OP Kassa (error code: "
 msgstr "WooCommerce OP Kassa: WooCommercen integraation autentikaatiossa tapahtui virhe (virhekoodi: "
 
+msgid "The site domain has changed: OP Kassa has been disconnected."
+msgstr "WooCommercen verkkotunnus on vaihtunut: OP Kassa yhteys on katkaistu."
+
+msgid "Old domain: "
+msgstr "Vanha verkkotunnus: "
+
+msgid "New domain: "
+msgstr "Uusi verkkotunnu: "
+
+msgid "Please make sure the new domain is correct before re-connecting to OP Kassa."
+msgstr "Varmista, että uusi verkkotunnus on oikein ennen kuin yhdistät WooCommercen uudelleen OP Kassaan."
+
+msgid "NOTE! If You connect to OP Kassa with same credentials than earlier, the products may be duplicated during the product synchronization. You may want to delete the products from OP Kassa prior new connection."
+msgstr "HUOMAA! Mikäli OP Kassaann yhdistetään samoilla tunnuksilla kuin ennen verkkotunnuksen muuttamista, aiemmalla verkkotunnuksella synkronoidut tuotteet saattavat monistua. Synkronoidut tuotteet kannattaa poistaa ennen yhteyden uudelleen muodostamista, jolloin ne synkroinoidaan uudelleen."
+
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
 

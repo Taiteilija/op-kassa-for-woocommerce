@@ -369,6 +369,12 @@ class OAuth {
             return;
         }
 
+        if ( !get_option( 'kassa_connected_site_url' ) ) {
+            add_option( 'kassa_connected_site_url', get_option('siteurl') );
+        } else {
+            update_option( 'kassa_connected_site_url', get_option('siteurl') );
+        }
+
         header( 'Location: ' . $this->get_woo_oauth_url( $consumer_key, $consumer_secret ) );
     }
 

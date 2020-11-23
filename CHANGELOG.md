@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - 2020-11-23
+
+### Changed
+- OP Kassa is now disconnected gracefully if the Woo instance domain is changed.
+
 ## [1.0.4] - 2020-11-04
 
 ### Changed

@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 1.0.4
+* Version: 1.0.5
 * Requires at least: 4.9
 * Tested up to: 5.5
 * Requires PHP: 7.1
@@ -102,6 +102,14 @@ final class Plugin {
     protected $deleted_product_tracker;
 
     /**
+     * Domain used to connect to OP Kassa
+     *
+     * @since 1.0.5
+     * @var string
+     */
+    protected $kassa_connected_site_domain;
+
+    /**
      * Define all WooCommerce post types here
      * since WC does not bother to define them.
      */
@@ -130,6 +138,46 @@ final class Plugin {
         $this->set_locale();
         $this->define_admin_hooks();
         $this->define_global_hooks();
+    }
+
+    /**
+     * Force disconnect from Kassa if site domain has changed
+     * 
+     * @since    1.0.5
+     * @access   private
+     */
+    function check_siteurl_changes() {
+        $site_url = parse_url( get_option( 'siteurl' ) );
+        $kassa_connected_site_url = get_option( 'kassa_connected_site_url' );
+
+        if ( !$kassa_connected_site_url ) {
+            return;
+        }
+
+        $kassa_connected_site_url = parse_url( $kassa_connected_site_url );
+        if( $kassa_connected_site_url['host'] && $kassa_connected_site_url['host'] !== $site_url['host'] ) {
+            $this->kassa_connected_site_domain = $kassa_connected_site_url['host'];
+
+            // Disconnect from Kassa
+            $this->disconnect_kassa();
+            delete_option( 'kassa_connected_site_url', null );
+
+            // Add notification about the disconnect and about the possibility of double products/orders in Kassa after reconnect
+            add_action( 'admin_notices', function () {
+                $site_url = parse_url(get_option('siteurl'));
+                ?>
+                <div class="notice notice-warning is-dismissible">
+                    <p>
+                        <div><?php echo esc_html( 'The site domain has changed: OP Kassa has been disconnected.', 'woocommerce-kis' ); ?></div>
+                        <div><?php echo esc_html( 'Old domain: ', 'woocommerce-kis' ) . $this->kassa_connected_site_domain; ?></div>
+                        <div><?php echo esc_html( 'New domain: ', 'woocommerce-kis' ) . $site_url['host']; ?></div>
+                        <div><?php echo esc_html( 'Please make sure the new domain is correct before re-connecting to OP Kassa.', 'woocommerce-kis' ); ?></div>
+                        <div><?php echo esc_html( 'NOTE! If You connect to OP Kassa with same credentials than earlier, the products may be duplicated during the product synchronization. You may want to delete the products from OP Kassa prior new connection.', 'woocommerce-kis' ); ?></div>
+                    </p>
+                </div>
+                <?php
+            });
+        }
     }
 
     /**
@@ -375,6 +423,7 @@ final class Plugin {
             'json_oauth1_access_token_data', [ $oauth, 'handle_json_access_token_data' ], 1, 1
         );
 
+        add_action( 'init', [ $this, 'check_siteurl_changes' ] );
         add_action( 'admin_init', [ $oauth, 'handle_kassa_oauth_response' ] );
 
         add_action( 'wp_loaded', function() {
