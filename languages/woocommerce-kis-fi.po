@@ -71,8 +71,8 @@ msgid "OP Kassa Integration"
 msgstr "OP Kassa Integraatio"
 
 #: src/Admin/SettingsPage.php:128
-msgid "Settings"
-msgstr "Asetukset"
+msgid "Sync settings"
+msgstr "Synkronointiasetukset"
 
 #: src/Admin/SettingsPage.php:135
 msgid "Product export"
@@ -300,7 +300,7 @@ msgstr "Tuotantoympäristö"
 
 #. Kassa Environment - Custom
 msgid "CUSTOM (environmental urls probably set up in wp-config.php. These settings override the environment selection.)"
-msgstr "RÄÄTÄLÖITY (Toimintaympäristön osoitteet ovat todennäköisesti määritelty wp-config.php-tiedostossa. Nämä määrittelyt ajavat tämän sivun toimintaympäristövalinnan yli."
+msgstr "RÄÄTÄLÖITY (Toimintaympäristön osoitteet ovat todennäköisesti määritelty wp-config.php-tiedostossa. Nämä määrittelyt ajavat tämän sivun toimintaympäristövalinnan yli.)"
 
 #. Kassa Environment - Instructions
 msgid "Before You can connect to Kassa, please select the target environment above and save the settings page."
@@ -348,6 +348,15 @@ msgstr "Varmista, että uusi verkkotunnus on oikein ennen kuin yhdistät WooComm
 
 msgid "NOTE! If You connect to OP Kassa with same credentials than earlier, the products may be duplicated during the product synchronization. You may want to delete the products from OP Kassa prior new connection."
 msgstr "HUOMAA! Mikäli OP Kassaan yhdistetään samoilla tunnuksilla kuin ennen verkkotunnuksen muuttamista, aiemmalla verkkotunnuksella synkronoidut tuotteet saattavat monistua. Synkronoidut tuotteet kannattaa poistaa ennen yhteyden uudelleen muodostamista, jolloin ne synkroinoidaan uudelleen."
+
+msgid "Tax settings"
+msgstr "Veroasetukset"
+
+msgid "Enable WooCommerce tax calculation"
+msgstr "Laske verot WooCommercessa"
+
+msgid "Use WooCommerce tax calculation on synchronized order prices.<div class=\"tax-warning\">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>"
+msgstr "Ota käyttöön WooCommercen verolaskenta siirretyistä OP Kassan myynneissä.<div class=\"tax-warning\">HUOMAA!<div>Verolaskenta WooCommercessa saattaa aiheuttaa pyöristyseroja OP Kassan tilauksiin nähden.</div><div>OP Kassan myynneissä olevien tuotteiden ja lisämaksujen osalta verolaskennassa käytetään perusveroprosenttia, mikäli ko. tuotteita ei ole määritelty WooCommercessa. Tämä saattaa erota OP Kassassa määritellystä veroprosentista.</div></div>"
 
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"

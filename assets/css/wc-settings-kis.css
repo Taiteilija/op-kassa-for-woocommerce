@@ -109,6 +109,26 @@
     font-weight: bold;
 }
 
+.tax-warning {
+    background-color: #ffffff;
+    border: 1px solid #ccd0d4;
+    color: #dc3232;
+    font-weight: bold;
+    padding: 10px;
+}
+.tax-warning div {
+    margin-top: 8px;
+    color: #000000;
+    font-weight: normal;
+}
+.tax-warning p {
+    display: none;
+}
+
+.form-table th {
+    width: 220px;
+}
+
 .env-warning {
     color: #dc3232;
     font-weight: bold;
