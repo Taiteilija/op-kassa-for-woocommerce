@@ -5,10 +5,10 @@
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
 * Version: 1.0.6
 * Requires at least: 4.9
-* Tested up to: 5.5
+* Tested up to: 5.6
 * Requires PHP: 7.1
 * WC requires at least: 3.0
-* WC tested up to: 4.4
+* WC tested up to: 4.9
 * Author: OP Merchant Services
 * Author URI: https://www.op-kauppiaspalvelut.fi 
 * Text Domain: op-kassa-for-woocommerce
