@@ -3,7 +3,7 @@ Contributors: loueranta
 Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: 1.0.6
 Requires PHP: 7.1
 License: MIT
@@ -34,7 +34,7 @@ Head over to OP Kassa admin panel and make sure that you have activated the WooC
 == Changelog ==
 
 = 1.0.6 =
-* It is now possible to choose wether Woo tax calculation is used on orders synced from OP Kassa or OP Kassa tax calculation is used instead.
+* It is now possible to choose whether Woo tax calculation is used on orders synced from OP Kassa or if OP Kassa tax calculation is used instead.
 
 = 1.0.5 =
 * OP Kassa is now disconnected gracefully if the Woo instance domain is changed. 
