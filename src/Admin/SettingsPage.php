@@ -125,6 +125,11 @@ class SettingsPage extends \WC_Settings_Page {
             [ 'type' => 'kis_system_audit' ],
 
             [
+                'type' => 'sectionend',
+                'id'   => 'kis_system_audit',
+            ],
+
+            [
                 'title' => __( 'OP Kassa Environment', 'woocommerce-kis' ),
                 'desc'  => __( 'Check the "Connect to OP Kassa Test Environment"-option below to use Kassa Test Environment and save the settings. <div class="env-change-warning">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>', 'woocommerce-kis' ),
                 'type'  => 'title',
@@ -150,7 +155,25 @@ class SettingsPage extends \WC_Settings_Page {
             ],
 
             [
-                'title' => __( 'Settings', 'woocommerce-kis' ),
+                'title' => __( 'Tax settings', 'woocommerce-kis' ),
+                'desc'  => __( 'Use WooCommerce tax calculation on synchronized order prices.<div class="tax-warning">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>', 'woocommerce-kis' ),
+                'type'  => 'title',
+                'id'    => 'kis_tax_settings',
+            ],
+
+            'kis_woo_tax_calc_enabled' => [
+                'type'    => 'checkbox',
+                'title'   => __( 'Enable WooCommerce tax calculation', 'woocommerce-kis' ),
+                'id'      => 'kis_woo_tax_calc_enabled',
+            ],
+
+            [
+                'type' => 'sectionend',
+                'id'   => 'kis_tax_settings',
+            ],
+
+            [
+                'title' => __( 'Sync settings', 'woocommerce-kis' ),
                 'type'  => 'title',
                 'id'    => 'kis_sync_settings',
             ],
