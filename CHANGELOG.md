@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.6] - 2021-02-05
 
 ### Changed
-- It is now possible to choose wether Woo tax calculation is used on orders synced from OP Kassa or OP Kassa tax calculation is used instead.
+- It is now possible to choose whether Woo tax calculation is used on orders synced from OP Kassa or if OP Kassa tax calculation is used instead.
 
 ## [1.0.5] - 2020-11-23
 
