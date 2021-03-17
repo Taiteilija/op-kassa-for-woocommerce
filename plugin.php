@@ -215,8 +215,8 @@ final class Plugin {
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_URL' ) ) {
             $target_url = KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED === 'no' ? 
-                'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-initiate' : 
-                'https://woocommerce.qa.op-kassa.fi/qa/woo-oauth-initiate';
+                'https://woocommerce.prod.op-kassa.fi/prod/woo-auth-initiate' : 
+                'https://woocommerce.qa.op-kassa.fi/qa/woo-auth-initiate';
             define( 'KIS_WOOCOMMERCE_OAUTH_URL', $target_url );
         }
 
@@ -236,8 +236,8 @@ final class Plugin {
 
         if ( ! defined( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL' ) ) {
             $target_url = KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED === 'no' ?
-                'https://woocommerce.prod.op-kassa.fi/prod/woo-oauth-callback' :
-                'https://woocommerce.qa.op-kassa.fi/qa/woo-oauth-callback';
+                'https://woocommerce.prod.op-kassa.fi/prod/woo-auth-callback' :
+                'https://woocommerce.qa.op-kassa.fi/qa/woo-auth-callback';
             define( 'KIS_WOOCOMMERCE_OAUTH_CALLBACK_URL', $target_url );
         }
 
