@@ -445,6 +445,7 @@ class SettingsPage extends \WC_Settings_Page {
         $url = Utility::add_query_parameter( KIS_KASSA_OAUTH_URL, 'domain', Utility::get_server_name() );
         $url = Utility::add_query_parameter( $url, 'woo_return_url', Utility::get_current_admin_url() );
         $url = Utility::add_query_parameter( $url, 'kassa_oauth', '1' );
+        $url = Utility::add_query_parameter( $url, 'rest_url', get_rest_url() );
 
         // You probably don't want to change this, but here's a filter for you my friend.
         return apply_filters( 'woocommerce_kis_kassa_oauth_url', $url );
