@@ -155,4 +155,12 @@ class Api {
         return $args;
     }
 
+    public function delete_auth_token(){
+        global $wpdb;
+    
+        $token_id = filter_input(INPUT_GET, 'token_id', FILTER_SANITIZE_NUMBER_INT);
+        if ( !empty($token_id)) {
+            $wpdb->delete( $wpdb->prefix . 'woocommerce_api_keys', array( 'key_id' => $token_id ), array( '%d' ) );
+        }   
+    }
 }

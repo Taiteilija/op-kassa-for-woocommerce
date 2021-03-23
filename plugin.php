@@ -458,6 +458,17 @@ final class Plugin {
                         }
                     ]
                 );
+                register_rest_route(
+                    'wc/v3',
+                    'delete_auth_token',
+                    [
+                        'methods'  => 'GET',
+                        'callback' => [$this->api, 'delete_auth_token'],
+                        'permission_callback' => function() {
+                            return \current_user_can('manage_woocommerce');
+                        }
+                    ]
+                );
             }
         );
 
