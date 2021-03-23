@@ -266,8 +266,6 @@ class OAuth {
         \delete_option( static::KASSA_MERCHANT_DETAILS_OPTION );
 
         \delete_option( static::WOO_USER_OPTION );
-        // TODO: tomih: Send a request to KIS to delete the merchant OAuth tokens.
-        //$this->delete_oauth_clients();
 
         // Delete the webhooks created by the plugin
         Webhooks::delete_all();
@@ -314,9 +312,7 @@ class OAuth {
 
             // Store details.
             $this->set_merchant_details( $merchant );
-            // @TODO: tomih: just set new user..?
             $this->set_oauth_user( get_current_user_id() );
-            //$this->handle_woo_oauth_client_creation();
         }
     }
 
