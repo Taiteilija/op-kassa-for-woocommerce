@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2021-03-23
 
 ### Changed
-- Replaced oAuth based authentication with the WooCommerce Rest API authentication.
+- Replaced OAuth based authentication with the WooCommerce Rest API authentication.
 
 ## [1.0.6] - 2021-02-05
 
