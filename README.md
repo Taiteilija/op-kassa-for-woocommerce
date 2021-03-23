@@ -5,7 +5,6 @@
 **Requires**
 - [WordPress](https://wordpress.org/download/): 4.9.0 and up
 - [WooCommerce](https://wordpress.org/plugins/woocommerce/): 3.0.0 and up
-- [WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/)
 - PHP: 7.1 and up
 
 ## Description
@@ -19,8 +18,7 @@ The plugin is published at the WordPress.org plugin directory to make installati
 1. Log on to WordPress admin area and navigate to **Plugins** -> **Add New**.
 2. Type "[OP Kassa for WooCommerce](https://wordpress.org/plugins/op-kassa-for-woocommerce/)" to search field.
 3. Install and activate the plugin from search results.
-4. Go back to **Plugins** -> **Add New** and search, install and activate "[WordPress REST API – OAuth 1.0a Server](https://wordpress.org/plugins/rest-api-oauth1/)".
-5. Head over to **WooCommerce** -> **Settings** and click on the "OP Kassa" tab to configure the plugin.
+4. Head over to **WooCommerce** -> **Settings** and select the "OP Kassa" tab to configure the plugin.
 
 ### System Audit
 
