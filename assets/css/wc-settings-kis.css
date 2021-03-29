@@ -109,19 +109,19 @@
     font-weight: bold;
 }
 
-.tax-warning {
+.setting-warning {
     background-color: #ffffff;
     border: 1px solid #ccd0d4;
     color: #dc3232;
     font-weight: bold;
     padding: 10px;
 }
-.tax-warning div {
+.setting-warning div {
     margin-top: 8px;
     color: #000000;
     font-weight: normal;
 }
-.tax-warning p {
+.setting-warning p {
     display: none;
 }
 
@@ -135,12 +135,14 @@
     margin-bottom: 10px;
 }
 
-#kis_environment_settings-description .env-change-warning {
+#kis_environment_settings-description .setting-warning,
+#kis_auth_settings-description .setting-warning {
     display: none;
     color: #dc3232;
     font-weight: bold;
 }
 
-#kis_environment_settings-description .env-change-warning.show {
+#kis_environment_settings-description .setting-warning.show,
+#kis_auth_settings-description .setting-warning.show {
     display: block;
 }

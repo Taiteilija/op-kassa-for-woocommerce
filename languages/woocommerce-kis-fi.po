@@ -279,8 +279,17 @@ msgid "Connect to OP Kassa Test Environment"
 msgstr "Yhdistä OP Kassan testiympäristöön"
 
 #. Kassa Environment - Desc
-msgid "Check the \"Connect to OP Kassa Test Environment\"-option below to use Kassa Test Environment and save the settings. <div class=\"env-change-warning\">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>"
-msgstr "Valitse \"Yhdistä OP Kassan testiympäristöön\" halutessasi yhdistää OP Kassan testiympäristöön ja tallenna asetukset. <div class=\"env-change-warning\">VAROITUS: Toimintaympäristön vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen.</div>"
+msgid "Check the \"Connect to OP Kassa Test Environment\"-option below to use Kassa Test Environment and save the settings. <div class=\"setting-warning\">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>"
+msgstr "Valitse \"Yhdistä OP Kassan testiympäristöön\" halutessasi yhdistää OP Kassan testiympäristöön ja tallenna asetukset. <div class=\"setting-warning\">VAROITUS: Toimintaympäristön vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen.</div>"
+
+msgid "Authentication settings"
+msgstr "Autentikointiasetukset"
+
+msgid "Receive OP Kassa integration authentication data in URL params instead of request header. Save the new settings before connecting to OP Kassa.<div class=\"setting-warning\">NOTE: Enabling this authentication method potentially weakens the security of the site. Enable this setting only if You know what You are doing!<div>Changing the auth method disconnects Your WooCommerce instance from Kassa, if connected.</div></div>"
+msgstr "OP Kassa-integraation autentikointitiedot vastaanotetaan URL-parametreinä HTTP-pyynnön header-tietojen sijaan. Tehtyäsi tämän muutoksen, tallenna tämä sivu ennen kuin yhdistät OP Kassaan.<div class=\"setting-warning\">VAROITUS: Tämän asetuksen muuttaminen saattaa heikentää tietoturvaa, joten älä muuta sitä ellet tiedä mitä olet tekemässä!<div>Autentikaatiotietojen vastaanottometodin vaihtaminen aiheuttaa mahdollisen nykyisen Kassa-yhteyden katkaisemisen!</div></div>"
+
+msgid "OP Kassa Auth data in URL params"
+msgstr "OP Kassa autentikaatiotiedot URL-parametreinä"
 
 #. Kassa Environment - Selection option
 msgid "Test Environment"
@@ -355,8 +364,8 @@ msgstr "Veroasetukset"
 msgid "Enable WooCommerce tax calculation"
 msgstr "Laske verot WooCommercessa"
 
-msgid "Use WooCommerce tax calculation on synchronized order prices.<div class=\"tax-warning\">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>"
-msgstr "Ota käyttöön WooCommercen verolaskenta siirretyistä OP Kassan myynneissä.<div class=\"tax-warning\">HUOMAA!<div>Verolaskenta WooCommercessa saattaa aiheuttaa pyöristyseroja OP Kassan tilauksiin nähden.</div><div>OP Kassan myynneissä olevien tuotteiden ja lisämaksujen osalta verolaskennassa käytetään perusveroprosenttia, mikäli ko. tuotteita ei ole määritelty WooCommercessa. Tämä saattaa erota OP Kassassa määritellystä veroprosentista.</div></div>"
+msgid "Use WooCommerce tax calculation on synchronized order prices.<div class=\"setting-warning\">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>"
+msgstr "Ota käyttöön WooCommercen verolaskenta siirretyistä OP Kassan myynneissä.<div class=\"setting-warning\">HUOMAA!<div>Verolaskenta WooCommercessa saattaa aiheuttaa pyöristyseroja OP Kassan tilauksiin nähden.</div><div>OP Kassan myynneissä olevien tuotteiden ja lisämaksujen osalta verolaskennassa käytetään perusveroprosenttia, mikäli ko. tuotteita ei ole määritelty WooCommercessa. Tämä saattaa erota OP Kassassa määritellystä veroprosentista.</div></div>"
 
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"

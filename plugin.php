@@ -3,7 +3,7 @@
 * Plugin Name: OP Kassa for WooCommerce
 * Plugin URI: https://github.com/OPMerchantServices/op-kassa-for-woocommerce 
 * Description: Connect your OP Kassa and WooCommerce to synchronize products, orders and stock levels between the systems.
-* Version: 2.0.0
+* Version: 2.0.1
 * Requires at least: 4.9
 * Tested up to: 5.6
 * Requires PHP: 7.1
@@ -288,15 +288,15 @@ final class Plugin {
     }
 
     /**
-     * After kis_test_environment_enabled-option update:
+     * If given new option value differs from the previous option value:
      * - Disconnect from Kassa
      * - Reload plugin to redefine new environment related constants
      * 
      * @since    0.8.0
      * @access   public
      */
-    public function reload_plugin( $new_environment, $old_environment ) {
-        if ( $new_environment !== $old_environment && ! empty( $new_environment ) ) {
+    public function reload_plugin( $new_option_value, $old_option_value ) {
+        if ( $new_option_value !== $old_option_value && ! empty( $new_option_value ) ) {
             $this->disconnect_kassa();
 
             // Reload page
@@ -371,6 +371,10 @@ final class Plugin {
 
         // Hooks to handle plugin environment change
         add_filter( 'update_option_kis_test_environment_enabled', [$this, 'reload_plugin'], 10, 2 );
+
+        // Hooks to handle plugin auth method change
+        add_filter( 'update_option_kis_woo_auth_params_enabled', [$this, 'reload_plugin'], 10, 2 );
+
 
         // Register the settings page for WooCommerce.
         add_filter(
