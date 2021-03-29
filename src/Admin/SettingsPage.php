@@ -23,6 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 class SettingsPage extends \WC_Settings_Page {
 
     /**
+     * The option name for the WooCommerce AUTH method option.
+     */
+    const WOO_AUTH_PARAMS = 'kis_woo_auth_params_enabled';
+
+    /**
      * Holds the plugin instance.
      *
      * @var Plugin
@@ -131,7 +136,7 @@ class SettingsPage extends \WC_Settings_Page {
 
             [
                 'title' => __( 'OP Kassa Environment', 'woocommerce-kis' ),
-                'desc'  => __( 'Check the "Connect to OP Kassa Test Environment"-option below to use Kassa Test Environment and save the settings. <div class="env-change-warning">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>', 'woocommerce-kis' ),
+                'desc'  => __( 'Check the "Connect to OP Kassa Test Environment"-option below to use Kassa Test Environment and save the settings. <div class="setting-warning">WARNING: Changing the environment disconnects Your WooCommerce instance from Kassa, if connected.</div>', 'woocommerce-kis' ),
                 'type'  => 'title',
                 'id'    => 'kis_environment_settings',
             ],
@@ -155,8 +160,26 @@ class SettingsPage extends \WC_Settings_Page {
             ],
 
             [
+                'title' => __( 'Authentication settings', 'woocommerce-kis' ),
+                'desc'  => __( 'Receive OP Kassa integration authentication data in URL params instead of request header. Save the new settings before connecting to OP Kassa.<div class="setting-warning">NOTE: Enabling this authentication method potentially weakens the security of the site. Enable this setting only if You know what You are doing!<div>Changing the auth method disconnects Your WooCommerce instance from Kassa, if connected.</div></div>', 'woocommerce-kis' ),
+                'type'  => 'title',
+                'id'    => 'kis_auth_settings',
+            ],
+
+            'kis_woo_auth_params_enabled' => [
+                'type'    => 'checkbox',
+                'title'   => __( 'OP Kassa Auth data in URL params', 'woocommerce-kis' ),
+                'id'      => 'kis_woo_auth_params_enabled',
+            ],
+
+            [
+                'type' => 'sectionend',
+                'id'   => 'kis_auth_settings',
+            ],
+
+            [
                 'title' => __( 'Tax settings', 'woocommerce-kis' ),
-                'desc'  => __( 'Use WooCommerce tax calculation on synchronized order prices.<div class="tax-warning">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>', 'woocommerce-kis' ),
+                'desc'  => __( 'Use WooCommerce tax calculation on synchronized order prices.<div class="setting-warning">NOTE:<div>There may be rounding differences between OP Kassa and WooCommerce orders if this option is enabled.</div><div>Products and Fees on OP Kassa purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from OP Kassa.</div></div>', 'woocommerce-kis' ),
                 'type'  => 'title',
                 'id'    => 'kis_tax_settings',
             ],
@@ -446,7 +469,10 @@ class SettingsPage extends \WC_Settings_Page {
         $url = Utility::add_query_parameter( $url, 'woo_return_url', Utility::get_current_admin_url() );
         $url = Utility::add_query_parameter( $url, 'kassa_oauth', '1' );
         $url = Utility::add_query_parameter( $url, 'rest_url', get_rest_url() );
-
+        if (\get_option( static::WOO_AUTH_PARAMS ) === 'yes' ) {
+            $url = Utility::add_query_parameter( $url, 'auth_params', 1);
+        };
+        
         // You probably don't want to change this, but here's a filter for you my friend.
         return apply_filters( 'woocommerce_kis_kassa_oauth_url', $url );
     }
