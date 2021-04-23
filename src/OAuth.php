@@ -39,7 +39,7 @@ class OAuth {
     /**
      * This command string is used as a GET parameter.
      */
-    const WOO_OAUTH_SUCCESS_CMD = 'woo_oauth_success';
+    const WOO_OAUTH_SUCCESS_CMD = 'woo_auth_success';
 
     /**
      * This command is used in the Kassa OAuth callback return URL
@@ -60,7 +60,7 @@ class OAuth {
     /**
      * This command string is used to display error notices.
      */
-    const KIS_OAUTH_ERROR_CMD = 'kis_oauth_error';
+    const KIS_OAUTH_ERROR_CMD = 'kis_auth_error';
 
     /**
      * This is used as a meta value to identify WooCommerce KIS json_consumer posts.
@@ -266,8 +266,6 @@ class OAuth {
         \delete_option( static::KASSA_MERCHANT_DETAILS_OPTION );
 
         \delete_option( static::WOO_USER_OPTION );
-        // TODO: Send a request to KIS to delete the merchant OAuth tokens.
-        $this->delete_oauth_clients();
 
         // Delete the webhooks created by the plugin
         Webhooks::delete_all();
@@ -314,8 +312,7 @@ class OAuth {
 
             // Store details.
             $this->set_merchant_details( $merchant );
-
-            $this->handle_woo_oauth_client_creation();
+            $this->set_oauth_user( get_current_user_id() );
         }
     }
 
@@ -470,7 +467,7 @@ class OAuth {
      * @return string
      */
     private function get_woo_oauth_url( string $consumer_key, string $consumer_secret ) : string {
-        $success_url = static::get_woo_oauth_success_url();
+        $success_url = static::get_woo_auth_success_url();
 
         $query = http_build_query(
             [
@@ -491,7 +488,7 @@ class OAuth {
      *
      * @return string
      */
-    private function get_woo_oauth_success_url() : string {
+    private function get_woo_auth_success_url() : string {
         return Utility::get_current_admin_url();
     }
 }

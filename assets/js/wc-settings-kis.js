@@ -4,15 +4,27 @@ jQuery(document).ready($ => {
         $('#kis_stock_sync_direction').val($('#kis_product_sync_direction').val());
     });
 
-    const orig_env = $('#kis_test_environment_enabled').prop('checked');
     // Show warning of Kassa disconnect when attempting to change the Kassa target environment
+    const orig_env = $('#kis_test_environment_enabled').prop('checked');
     $('#kis_test_environment_enabled').on('change', (event) => {
         const current_env = $(event.target).prop('checked');
 
         if ( orig_env !== current_env ) {
-            $('#kis_environment_settings-description .env-change-warning').addClass('show');
+            $('#kis_environment_settings-description .setting-warning').addClass('show');
         } else {
-            $('#kis_environment_settings-description .env-change-warning').removeClass('show');
+            $('#kis_environment_settings-description .setting-warning').removeClass('show');
+        }
+    });
+
+    // Show warning of Kassa disconnect when attempting to change the Woo Auth Method
+    const orig_auth_method = $('#kis_woo_auth_params_enabled').prop('checked');
+    $('#kis_woo_auth_params_enabled').on('change', (event) => {
+        const current_auth_method = $(event.target).prop('checked');
+
+        if ( orig_auth_method !== current_auth_method ) {
+            $('#kis_auth_settings-description .setting-warning').addClass('show');
+        } else {
+            $('#kis_auth_settings-description .setting-warning').removeClass('show');
         }
     });
 

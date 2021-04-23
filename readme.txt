@@ -4,7 +4,7 @@ Donate link: https://www.op-kauppiaspalvelut.fi
 Tags: woocommerce
 Requires at least: 4.9
 Tested up to: 5.6
-Stable tag: 1.0.6
+Stable tag: 2.0.1
 Requires PHP: 7.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -22,7 +22,6 @@ Follow these easy steps to install the plugin:
 1. Log on to WordPress admin area and navigate to Plugins -> Add New.
 1. Type "OP Kassa for WooCommerce" to search field.
 1. Install and activate the plugin from search results.
-1. Go back to Plugins -> Add New and search, install and activate "WordPress REST API – OAuth 1.0a Server".
 1. Head over to WooCommerce -> Settings and click on the "OP Kassa" tab to configure the plugin.
 
 == Frequently Asked Questions ==
@@ -32,6 +31,12 @@ Follow these easy steps to install the plugin:
 Head over to OP Kassa admin panel and make sure that you have activated the WooCommerce addon.
 
 == Changelog ==
+
+= 2.0.1 =
+* Added OP Kassa integration authentication related settings.
+
+= 2.0.0 =
+* Replaced OAuth based authentication with the WooCommerce Rest API authentication.
 
 = 1.0.6 =
 * It is now possible to choose whether Woo tax calculation is used on orders synced from OP Kassa or if OP Kassa tax calculation is used instead.
