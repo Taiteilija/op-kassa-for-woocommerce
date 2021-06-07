@@ -367,6 +367,30 @@ msgstr "Laske verot WooCommercessa"
 msgid "Use WooCommerce tax calculation on synchronized order prices.<div class=\"setting-warning\">NOTE:<div>There may be rounding differences between Checkout POS: and WooCommerce orders if this option is enabled.</div><div>Products and Fees on Checkout POS: purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from Checkout POS:.</div></div>"
 msgstr "Ota käyttöön WooCommercen verolaskenta siirretyistä Checkout POS:n myynneissä.<div class=\"setting-warning\">HUOMAA!<div>Verolaskenta WooCommercessa saattaa aiheuttaa pyöristyseroja Checkout POS:n tilauksiin nähden.</div><div>Checkout POS:n myynneissä olevien tuotteiden ja lisämaksujen osalta verolaskennassa käytetään perusveroprosenttia, mikäli ko. tuotteita ei ole määritelty WooCommercessa. Tämä saattaa erota Checkout POS:ssa määritellystä veroprosentista.</div></div>"
 
+msgid "Operational environment"
+msgstr "Toimintaympäristö"
+
+msgid "Checkout POS production environment"
+msgstr "Checkout POS tuotantoympäristö"
+
+msgid "Checkout POS test environment"
+msgstr "Checkout POS testiympäristö"
+
+msgid "<strong>Receive Checkout POS integration authentication data in URL params instead of request header.</strong> <div class="auth-url-class">Receive Checkout POS integration authentication data in URL params instead of request header. After changing the setting save the changes before you connect to Checkout POS.</div>"
+msgstr "<strong>Checkout POS:-integraation autentikointitiedot vastaanotetaan URL-parametreinä HTTP-pyynnön header-tietojen sijaan.</strong> <div class="auth-url-class">Checkout POS:-integraation autentikointitiedot vastaanotetaan URL-parametreinä HTTP-pyynnön header-tietojen sijaan. Tehtyäsi tämän muutoksen, tallenna tämä sivu ennen kuin yhdistät Checkout POS:iin."
+
+msgid "Developer settings"
+msgstr "Kehittäjä asetukset"
+
+msgid "Connection"
+msgstr "Yhteys"
+
+msgid "Woocommerce is not connected to Checkout POS"
+msgstr "Woocommerce ei ole yhteydessä Checkout POSään"
+
+msgid "<h4>Calculate the taxes in woocommerce</h4><div class="tax-notice">There may be rounding differences between Checkout POS and WooCommerce orders if this option is enabled. Products and Fees on Checkout POS purchases which are not found in WooCommerce, use the default tax class VAT percentage. This may differ from Checkout POS.</div>"
+msgstr "<h4>Ota käyttöön WooCommercen verolaskenta siirretyistä Checkout POS:n myynneissä.</h4><div class="tax-notice">Verolaskenta WooCommercessa saattaa aiheuttaa pyöristyseroja Checkout POS:n tilauksiin nähden.</div><div>Checkout POS:n myynneissä olevien tuotteiden ja lisämaksujen osalta verolaskennassa käytetään perusveroprosenttia, mikäli ko. tuotteita ei ole määritelty WooCommercessa. Tämä saattaa erota Checkout POS:ssa määritellystä veroprosentista.</div>"
+
 #~ msgid "Ville Siltala / Geniem Oy"
 #~ msgstr "Ville Siltala / Geniem Oy"
 
