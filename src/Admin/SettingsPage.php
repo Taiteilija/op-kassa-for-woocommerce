@@ -222,8 +222,8 @@ class SettingsPage extends \WC_Settings_Page {
                 'title'   => __( 'Operational environment', 'woocommerce-kis' ),
                 'id'      => 'kis_test_environment_enabled',
                 'options' => [
-                    'kis_production_environment' => __( 'Checkout POS production environment', 'woocommerce-kis' ),
-                    'kis_test_environment_enabled' => __( 'Checkout POS test environment' ),
+                    'no' => __( 'Checkout POS production environment', 'woocommerce-kis' ),
+                    'yes' => __( 'Checkout POS test environment' ),
                 ],
             ],
 
@@ -296,10 +296,10 @@ class SettingsPage extends \WC_Settings_Page {
                                             name="kis_test_environment_enabled"
                                             id="kis_test_environment_enabled"
                                             >
-                                                <option value="no" <?php selected( KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED, 'no' ); ?>>
+                                                <option value="no" <?php selected( $test_environment_enabled, 'no' ); ?>>
                                                 <?php echo __( 'Checkout POS production environment', 'woocommerce-kis' ) ?>
                                                 </option>
-                                                <option value="yes" <?php selected( KIS_WOOCOMMERCE_TEST_ENVIRONMENT_ENABLED, 'yes' ); ?>>
+                                                <option value="yes" <?php selected( $test_environment_enabled, 'yes' ); ?>>
                                                 <?php echo __( 'Checkout POS test environment', 'woocommerce-kis' ) ?>
                                                 </option>
                                         </select>
